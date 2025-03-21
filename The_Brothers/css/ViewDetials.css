@@ -1,0 +1,367 @@
+.body_1{
+    padding: 50px 0px 50px 0px;
+    font-family: "Afacad Flux", sans-serif;
+    overflow: hidden;
+}
+.body_1 .left_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.body_1 .left_1 .sub_img_1 {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    background-color: #f6f6f6;
+    margin: 20px 0px;
+}
+.body_1 .left_1 .sub_img_1 img{
+    width:100%;
+    object-fit: cover;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+.body_1 .left_1 .bigImg{
+    text-align: center;
+    width: 546px;
+    background-color: #f6f6f6;
+}
+.body_1 .left_1 img{
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.body_1 .left_1 .sub_img_1 .smallImg{
+}
+
+
+
+
+
+
+/* right side */
+
+
+
+.body_1 .right_1{
+
+}
+.body_1 .right_1 ul{
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+.body_1 .right_1 ul li{
+    list-style-type: none;
+    font-size: 18px;
+}
+.body_1 .right_1 ul li h1{
+    
+}
+.body_1 .right_1 ul li .RatingDiv{
+
+}
+.body_1 .right_1 ul li .RatingDiv h3{
+
+}
+.body_1 .right_1 ul li h5{
+    font-size: 25px;
+}
+
+
+.body_1 .right_1 ul li button{
+    width: 40px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: solid 1px gray;
+    margin: 0px 5px;
+}
+
+
+
+
+.body_1 .right_1 ul li .DealBtn{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(255, 75, 75);
+    color: #fff;
+    border: none;
+}
+.body_1 .right_1 ul li p{
+    font-size: 18px;
+}
+.body_1 .right_1 ul li p span{
+   
+}
+.body_1 .right_1 ul li p .RateCros{
+    text-decoration: line-through;
+}
+.body_1 .right_1 ul li p .sales{
+    padding: 2px 15px 4px 15px;
+    margin-left: 20px;
+    background-color: rgb(118, 216, 255);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+.body_1 .right_1 ul li .Off{
+    font-weight: 300;
+    color: rgb(255, 95, 95);
+}
+
+
+.body_1 .right_1 ul .AllDelivery{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.body_1 .right_1 ul li .Delivery{
+    text-align: center;
+}
+.body_1 .right_1 ul li .Delivery .MuiSvgIcon-root{
+    color: orange;
+}
+.body_1 .right_1 ul .Prodails{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: left;
+}
+.body_1 .right_1 ul li h2{
+
+}
+.body_1 .right_1 ul li h4{
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.body_1 .left_1 .sub_img_1::-webkit-scrollbar{
+    width: 0;
+}
+
+
+
+
+
+
+@media screen and (max-width:1199px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 480px;
+    }
+    .body_1 .left_1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@media screen and (max-width:991px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 400px;
+    }
+    .body_1 .right_1 ul li .Delivery {
+        text-align: center;
+        width: 107px;
+    }
+}
+
+
+@media screen and (max-width:900px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 350px;
+    }
+
+    .body_1 .right_1 ul li {
+        list-style-type: none;
+        font-size: 16px;
+    }
+    .body_1 .right_1 ul li h1 {
+        font-size: 30px;
+    }
+    .body_1 .right_1 ul li .RatingDiv h3 {
+        font-size: 23px;
+    }
+    .body_1 .right_1 ul li h5 {
+        font-size: 23px;
+    }
+    .body_1 .right_1 ul li button {
+        width: 35px;
+        height: 30px;
+        margin: 0px 5px;
+    }
+    .body_1 .right_1 ul li .DealBtn {
+        width: 140px;
+        height: 27px;
+    }
+    .body_1 .right_1 ul li .Off {
+        font-size: 27px;
+    }
+    .body_1 .right_1 ul li .Delivery {
+        text-align: center;
+        width: 85px;
+        font-size: 14px;
+    }
+    .body_1 .right_1 ul li h2 {
+        font-size: 23px;
+    }
+    .body_1 .right_1 ul li h2 {
+        font-size: 23px;
+    }
+}
+
+
+
+@media screen and (max-width:767px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 305px;
+    }
+    .body_1 .left_1 .sub_img_1 {
+        width: 80px;
+    }
+    .body_1 .left_1 .sub_img_1 img {
+        width: 100%;
+        object-fit: cover;
+        margin: 0px 5px;
+    }
+    .body_1 .right_1 ul li .Delivery {
+        text-align: center;
+        width: 75px;
+        font-size: 12px;
+    }
+    .body_1 .right_1 ul li .Delivery .MuiSvgIcon-root {
+        color: orange;
+        font-size: 20px;
+    }
+    .body_1 .left_1 .sub_img_1 img {
+      
+    }
+}
+
+
+
+@media screen and (max-width:700px){
+
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 250px;
+    }
+
+    .body_1 .right_1 ul li h1 {
+        font-size: 25px;
+    }
+    .body_1 .right_1 ul li {
+        list-style-type: none;
+        font-size: 15px;
+    }
+    .body_1 .right_1 ul .AllDelivery {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .body_1 .right_1 ul li .Delivery {
+        text-align: center;
+        width: 100px;
+        margin: 10px 0px;
+        font-size: 12px;
+    }
+    .body_1 .right_1 ul li h4 {
+        margin-right: 10px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .body_1 .right_1 ul li .DealBtn {
+        width: 140px;
+        height: 27px;
+        margin-bottom: 10px;
+    }
+}
+
+
+@media screen and (max-width:575px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 390px;
+    }
+ 
+    .body_1 .right_1 {
+        padding: 20px 20px 20px 40px;
+    }
+    .body_1 .right_1 ul li h1 {
+        font-size: 28px;
+    }
+    .body_1 .right_1 ul li .RatingDiv h3 {
+        font-size: 25px;
+    }
+    .body_1 .right_1 ul li h5 {
+        font-size: 25px;
+    }
+    .body_1 .right_1 ul li {
+        list-style-type: none;
+        font-size: 16px;
+    }
+    .body_1 .right_1 ul li .Off {
+        font-size: 30px;
+    }
+    .body_1 .right_1 ul .AllDelivery {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        justify-content: space-between;
+    }
+    .body_1 .right_1 ul li .Delivery {
+        text-align: center;
+        width: 90px;
+        margin: 10px 0px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+@media screen and (max-width:450px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 354px;
+    }
+    .body_1 .right_1 {
+        padding: 20px 20px 20px 20px;
+    }
+}
+
+
+
+@media screen and (max-width:400px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 314px;
+    }
+
+    .body_1 .right_1 ul .AllDelivery {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+    }
+}
+
+
+
+@media screen and (max-width:360px){
+    .body_1 .left_1 .bigImg {
+        text-align: center;
+        border: solid 1px;
+        width: 258px;
+    }
+}

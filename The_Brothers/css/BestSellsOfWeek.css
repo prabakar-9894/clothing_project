@@ -1,0 +1,52 @@
+.best_sells_of_week{
+    padding: 20px 0px 50px 0px;
+    font-family: "Afacad Flux", sans-serif;
+    overflow: hidden;
+    text-transform: uppercase !important;
+    overflow: hidden;
+}
+.best_sells_of_week h2{
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+    font-weight: 700;
+    color: #8d605d;
+}
+.best_sells_of_week .center_3{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width:767px){
+    .best_sells_of_week .center_3{
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+    }
+   
+}
+
+@media screen and (max-width:360px){
+    .best_sells_of_week .center_3{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,152 @@
+.Footer{
+ padding: 70px 0px 50px 0px;
+ margin: 0px 0px 0px 0px;  
+ background-color: #8d605d;
+ text-transform: uppercase;
+ font-family: "Afacad Flux", sans-serif;
+}
+.Footer .footerContainer{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-evenly;
+}
+.Footer .footerContainer ul{
+    padding: 0px;
+}
+.Footer .footerContainer ul li{
+    list-style-type: none;
+    color: #fff;
+    margin-bottom: 10px
+}
+.Footer .footerContainer ul .LogoAndName{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: left;
+}
+.Footer .footerContainer ul .LogoAndName h3{
+    margin-left: 10px;
+    font-family: 25px;
+}
+.Footer .footerContainer ul li .MuiSvgIcon-root{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.Footer .footerContainer ul li .LogoImg{
+    width: 50px;
+}
+.Footer .footerContainer ul li h3{
+    margin: 0px 0px 15px 0px;
+    color: #fff;
+
+}
+.Footer .footerContainer ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
+/* Media  Screen - Footer - start */
+
+@media screen and (max-width:767px){
+    .Footer .footerContainer ul li .LogoImg {
+        width: 45px;
+    }
+    .Footer .footerContainer ul .LogoAndName h3 {
+        margin-left: 10px;
+        font-size: 24px;
+    }
+    .Footer .footerContainer ul li {
+        list-style-type: none;
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    .Footer .footerContainer ul li h3 {
+        margin: 0px 0px 15px 0px;
+        color: #fff;
+        font-size: 24px;
+    }
+    .Footer .footerContainer ul li .MuiSvgIcon-root {
+        margin-right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .Footer .footerContainer ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+@media screen and (max-width:650px){
+    .Footer .footerContainer ul .LogoAndName h3 {
+        margin-left: 10px;
+        font-size: 22px;
+    }
+    .Footer .footerContainer ul li {
+        list-style-type: none;
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    .Footer .footerContainer ul li h3 {
+        margin: 0px 0px 15px 0px;
+        color: #fff;
+        font-size: 22px;
+    }
+    .Footer .footerContainer ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+    }
+    .Footer .footerContainer ul li .MuiSvgIcon-root {
+        margin-right: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .Footer .footerContainer ul .LogoAndName h3 {
+        margin-left: 10px;
+        font-size: 19px;
+    }
+    .Footer .footerContainer ul li {
+        list-style-type: none;
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    .Footer .footerContainer ul li h3 {
+        margin: 0px 0px 15px 0px;
+        color: #fff;
+        font-size: 19px;
+    }
+    .Footer .footerContainer ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 13px;
+    }
+}
+
+
+
+@media screen and (max-width:550px){
+    .Footer .footerContainer {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-evenly;
+    }
+}
+
+   
+
+
+
+    /* Media  Screen - Footer - End */

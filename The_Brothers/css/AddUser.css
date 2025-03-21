@@ -1,0 +1,138 @@
+
+/* General Layout */
+.AddformAlldata {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Form Heading */
+  .AddformAlldata h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8d605d;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  /* Form Group */
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Input Fields */
+  .form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
+  
+  /* Labels */
+  .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  /* Error Messages */
+  .error {
+    font-size: 12px;
+    color: #ff4d4d;
+    margin-top: 5px;
+  }
+  
+  /* Checkbox */
+  .checkboxDiv {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkboxInput {
+    margin-right: 8px;
+  }
+  
+  /* Submit Button */
+  .submit-button {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .submit-button:active {
+    background-color: #3e8e41;
+  }
+  
+  /* Login Link */
+  form a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #4caf50;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  form a:hover {
+    color: #388e3c;
+  }
+  
+  /* Uploaded Image Preview */
+  .uploaded-image-preview {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .uploaded-image-preview img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 480px) {
+    .AddformAlldata {
+      padding: 15px;
+    }
+  
+    .submit-button {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  
+    form a {
+      font-size: 12px;
+    }
+  }
+  

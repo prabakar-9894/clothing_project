@@ -1,0 +1,81 @@
+[
+    {
+        "Id":29,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Shirt & Pant Set",
+        "Image":"./../src/assets/kid_1.webp",
+        "Quantity":1
+    },
+    {
+        "Id":30,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Shirt & Blue Pant",
+        "Image":"./../src/assets/kid_2.webp",
+        "Quantity":1
+    },
+    {
+        "Id":31,
+        "Name":"Lufffy",
+        "Price":599, "Mrp":1999,
+        "Offer":50,
+        "Type":"Choli for Girls",
+        "Image":"./../src/assets/kid_3.webp",
+        "Quantity":1
+    },
+    {
+        "Id":32,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Sea Green Choli",
+        "Image":"./../src/assets/kid_4.webp",
+        "Quantity":1
+    },
+    {
+        "Id":33,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Sea Green Choli",
+        "Image":"./../src/assets/kid_5.webp",
+        "Quantity":1
+    },
+    {
+        "Id":34,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Party Gown",
+        "Image":"./../src/assets/kid_6.webp",
+        "Quantity":1
+    },
+    {
+        "Id":35,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Shirt & Cargo Pant",
+        "Image":"./../src/assets/kid_7.webp",
+        "Quantity":1
+    },
+    {
+        "Id":36,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Shirt and Black Pant",
+        "Image":"./../src/assets/kid_8.webp",
+        "Quantity":1
+    }
+]

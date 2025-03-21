@@ -1,0 +1,37 @@
+.top_of_day{
+    padding: 20px 0px 20px 0px;
+    font-family: "Afacad Flux", sans-serif;
+    overflow: hidden;
+    text-transform: uppercase !important;
+    overflow: hidden;
+}
+.top_of_day h2{
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+    font-weight: 700;
+    color: #8d605d;
+}
+.top_of_day .centerTwo{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width:767px){
+    .top_of_day .centerTwo{
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+    }
+    
+}
+
+
+@media screen and (max-width:360px){
+    .top_of_day .centerTwo{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}

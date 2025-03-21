@@ -1,0 +1,81 @@
+[
+    {
+        "Id":13,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Panel-Tactile Shirt",
+        "Image":"./../src/assets/men_1.webp",
+        "Quantity":1
+    },
+    {
+        "Id":14,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Graph-Tactile Shirt",
+        "Image":"./../src/assets/men_2.webp",
+        "Quantity":1
+    },
+    {
+        "Id":15,
+        "Name":"Lufffy",
+        "Price":599, "Mrp":1999,
+        "Offer":50,
+        "Type":"Primrose Flora Shirt",
+        "Image":"./../src/assets/men_3.webp",
+        "Quantity":1
+    },
+    {
+        "Id":16,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Breezy Wrinked Shirt",
+        "Image":"./../src/assets/men_4.webp",
+        "Quantity":1
+    },
+    {
+        "Id":17,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Striped Tailored ",
+        "Image":"./../src/assets/men_5.webp",
+        "Quantity":1
+    },
+    {
+        "Id":18,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Tailored-Line-Trouser",
+        "Image":"./../src/assets/men_6.webp",
+        "Quantity":1
+    },
+    {
+        "Id":19,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Tailored-Trouser",
+        "Image":"./../src/assets/men_7.webp",
+        "Quantity":1
+    },
+    {
+        "Id":20,
+        "Name":"Lufffy",
+        "Price":599,
+        "Mrp":1999,
+        "Offer":50,
+        "Type":"Tailored-Trousers",
+        "Image":"./../src/assets/men_8.webp",
+        "Quantity":1
+    }
+]

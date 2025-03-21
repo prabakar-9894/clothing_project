@@ -1,0 +1,84 @@
+[
+
+    {
+        "Id":43,
+        "Name":"Baggy",
+        "Price":699,
+        "Mrp":1199,
+        "offers":50,
+        "Type":"Baggy",
+        "Image":"./../src/assets/baggy_pant_1.webp",
+        "Category": "baggy",
+        "Quantity":1,
+        "Offer":10,
+        "Rating":4.1
+    },
+    {
+        "Id":44,
+        "Name":"Baggy",
+        "Price":399,
+        "Mrp":1199,
+        "offers":50,
+        "Type":"Baggy",
+        "Image":"./../src/assets/baggy_sub_1.webp",
+        "Category": "baggy",
+        "Quantity":1,
+        "Offer":25,
+        "Rating":2.7
+    },
+   
+    {
+        "Id":45,
+        "Name":"Highlander",
+        "Price":999,
+        "Mrp":1199,
+        "offers":50,
+        "Type":"Highlander",
+        "Image":"./../src/assets/slimFit_Pant_1.webp",
+        "Category": "highlander",
+        "Quantity":1,
+        "Offer":45,
+        "Rating":3.5
+    },
+    {
+        "Id":46,
+        "Name":"Highlander",
+        "Price":599,
+        "Mrp":1199,
+        "offers":50,
+        "Type":"Highlander",
+        "Image":"./../src/assets/Highlander_pant_2.webp",
+        "Category": "highlander",
+        "Quantity":1,
+        "Offer":30,
+        "Rating":4.9
+    },
+    {
+        "Id":47,
+        "Name":"Cargo",
+        "Price":249,
+        "Mrp":1199,
+        "offers":50,
+        "Type":"Cargo",
+        "Image":"./../src/assets/cargo_pant_2.webp",
+        "Category": "cargo",
+        "Quantity":1,
+        "Offer":15,
+        "Rating":4.5
+    },
+    
+ 
+    {
+        "Id":48,
+        "Name":"Cargo",
+        "Price":499,
+        "Mrp":1199,
+        "offers":50,
+        "Type":"Cargo",
+        "Image":"./../src/assets/cargo_pant_3.webp",
+        "Category": "cargo",
+        "Quantity":1,
+        "Offer":10,
+        "Rating":3.8
+    }
+]

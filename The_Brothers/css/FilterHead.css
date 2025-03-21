@@ -1,0 +1,202 @@
+
+
+.filter_head {
+        position: relative;
+        top: -5px;
+        left: 0px;
+}
+
+.filter_head .fil_alls{
+    width: 100%;
+    height: 100vh;
+    padding: 0px 0px 10px 0px;
+    box-shadow: 1px -4px 23px -11px gray;
+    border: solid 1px rgb(255, 255, 255);
+    border-left: none;
+    background-color: #ffffff;
+}
+
+
+.filter_head .fil_alls .top_filter{
+    padding: 20px 10px 20px 10px;
+    /* background-color: #0f284d; */
+    background-color: #8d605d;
+    color: #fff;
+}
+.filter_head .fil_alls .top_filter h4{
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+}
+.filter_head .fil_alls .top_filter button{
+    width: 28px;
+    height: 28px;
+    background-color: #fff;
+    border: none;
+    border-radius: 2px;
+}
+.filter_head .fil_alls .top_filter button:hover{
+    background-color: red;
+    .fa-xmark{
+        color: #fff;
+    }
+}
+.filter_head .fil_alls .top_filter button .fa-xmark{
+    font-size: 16px;
+    color: red;
+    text-align: center;
+    
+}
+
+
+
+.filter_head .fil_alls .center_1_filter{
+    
+    padding: 20px 10px 20px 10px;
+    border-bottom: 1px solid rgb(163, 163, 163);
+    border-top: 1px solid rgb(163, 163, 163);
+}
+.filter_head .fil_alls .center_1_filter h5{
+    font-size: 20px;
+    font-weight: 500;
+    color: #8d605d;
+  
+}
+.filter_head .fil_alls .center_1_filter .price_btns{
+    display: grid;
+    grid-template-columns: auto;
+    padding: 10px 0px 0px 0px;
+}
+.filter_head .fil_alls .center_1_filter .price_btns label{
+    color: #8d605d;
+    
+}
+.filter_head .fil_alls .center_1_filter .price_btns label input{
+    width: 30px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+.filter_head .fil_alls .center_2_filter{
+    padding: 20px 10px 20px 10px;
+}
+.filter_head .fil_alls .center_2_filter ul{
+    padding: 0px 0px 0px 0px;
+}
+.filter_head .fil_alls .center_2_filter ul li{
+    list-style-type: none;
+    margin: 10px 0px 10px 0px;
+    color: #8d605d;
+}
+.filter_head .fil_alls .center_2_filter ul li h5{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0px 0px 0px 0px;
+    color: #8d605d;
+    /* color: #0f284d; */
+}
+.filter_head .fil_alls .center_2_filter ul li input{
+    width: 20px;
+    margin: 0px 10px 0px 0px;
+}
+
+
+
+
+@media screen and (max-width:650px){
+    .filter_head .fil_alls .center_1_filter .price_btns label input {
+        width: 17px;
+        height: 12px;
+        margin-right: 2px;
+    }
+    .filter_head .fil_alls .center_1_filter .price_btns label {
+        font-size: 14px;
+    }
+    .filter_head .fil_alls .center_2_filter ul li {
+        list-style-type: none;
+        margin: 10px 0px 10px 0px;
+        font-size: 14px;
+    }
+    .filter_head .fil_alls .center_2_filter ul li input {
+        width: 17px;
+        height: 12px;
+        margin: 0px 3px 0px 0px;
+    }
+}
+
+
+@media screen and (max-width:400px){
+    .filter_head .fil_alls .center_1_filter .price_btns label {
+        font-size: 12px;
+    }
+    .filter_head .fil_alls .center_1_filter .price_btns label input {
+        width: 13px;
+        height: 12px;
+        margin-right: 2px;
+    }
+    .filter_head .fil_alls .center_2_filter ul li h5 {
+        font-size: 17px;
+        font-weight: 500;
+        padding: 0px 0px 0px 0px;
+    }
+    
+    .filter_head .fil_alls .center_1_filter h5 {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .filter_head .fil_alls .center_2_filter ul li input {
+        width: 13px;
+        height: 12px;
+        margin: 0px 2px 0px 0px;
+    }
+    .filter_head .fil_alls .center_2_filter ul li {
+        list-style-type: none;
+        margin: 10px 0px 10px 0px;
+        font-size: 13px;
+    }    
+    .filter_head .fil_alls .center_2_filter {
+        padding: 20px 5px 20px 7px;
+    }
+    .filter_head .fil_alls .center_1_filter {
+        padding: 20px 5px 20px 7px;
+    }
+}
+
+
+@media screen and (max-width:360px){
+
+    .filter_head .fil_alls .center_2_filter ul li h5 {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 0px 0px 0px 0px;
+    }
+    .filter_head .fil_alls .center_1_filter h5 {
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .filter_head .fil_alls .center_1_filter .price_btns label {
+        font-size: 10px;
+    }
+    .filter_head .fil_alls .center_1_filter .price_btns label input {
+        width: 12px;
+        height: 10px;
+        margin-right: 2px;
+    }
+    .filter_head .fil_alls .center_2_filter ul li {
+        list-style-type: none;
+        margin: 10px 0px 10px 0px;
+        font-size: 11px;
+    }
+    .filter_head .fil_alls .center_2_filter ul li input {
+        width: 11px;
+        height: 10px;
+        margin: 0px 2px 0px 0px;
+    }    
+}

@@ -1,0 +1,47 @@
+.RemoveCart{
+    position: absolute;
+    top: 2px;
+    right: 20px;
+    color: rgb(255, 0, 136);
+    background-color: #fff;
+    border: none; 
+}
+.addToCart{
+    position: absolute;
+    top: 2px;
+     right: 20px;
+    font-weight: 600;
+    color: green;
+    background-color: #fff;
+    border: none; 
+}
+.RemoveCart .MuiSvgIcon-root{
+    color: #a70265;
+    font-size: 25px;
+}
+
+.addToCart .MuiSvgIcon-root{
+    color: #0d9036;
+    font-size: 25px;
+}
+
+
+
+
+@media screen and (max-width:650px){
+    .addToCart .MuiSvgIcon-root {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width:576px){
+    .addToCart .MuiSvgIcon-root {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:400px){
+.addToCart .MuiSvgIcon-root {
+    font-size: 23px;
+}
+}

@@ -1,0 +1,41 @@
+.pick_up{
+    padding: 20px 0px 20px 0px;
+    font-family: "Afacad Flux", sans-serif;
+    overflow: hidden;
+    text-transform: uppercase !important;
+    overflow: hidden;
+}
+.pick_up h2{
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+    font-weight: 700;
+    color: #8d605d;
+}
+.pick_up .centerOne{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+}
+
+
+
+
+@media screen and (max-width:767px){
+    .pick_up .centerOne {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+   
+}
+
+@media screen and (max-width:360px){
+    .pick_up .centerOne {
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .pick_up h2 {
+        padding: 0px 0px 20px 0px !important;
+        font-size: 23px !important;
+    }
+    
+}
