@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import '/css/Header.css'
-import Logo from '../assets/logo.png'
+import Logo from '/assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from 'react-bootstrap';
 import {Row} from 'react-bootstrap';

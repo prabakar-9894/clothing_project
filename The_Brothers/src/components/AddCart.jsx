@@ -3,7 +3,7 @@ import { ShopContext } from '../App';
 import AddCartView from './AddCartView';
 import '/css/AddCartTable.css'
 import { Container, Row, Col } from 'react-bootstrap';
-import ProductNotFoundImg from './../assets/pro_img_2.png' 
+import ProductNotFoundImg from '/assets/pro_img_2.png' 
 import '/css/ProductNotFoundImg.css'
 
 const AddCart = () => {

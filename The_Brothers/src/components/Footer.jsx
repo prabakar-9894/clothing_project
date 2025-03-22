@@ -7,7 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import Logo from '../assets/logo.png'
+import Logo from '/assets/logo.png'
 import '/css/Footer.css'
 
 const Footer = () => {

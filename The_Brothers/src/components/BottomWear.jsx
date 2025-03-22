@@ -4,7 +4,7 @@ import {  Row, Col } from 'react-bootstrap'
 import SearchIcon from '@mui/icons-material/Search';
 import '/css/FilterHead.css'
 import '/css/BottomWear.css'
-import proimg from '../assets/pro_img_2.png'
+import proimg from '/assets/pro_img_2.png'
 import axios from "axios"
 
 
