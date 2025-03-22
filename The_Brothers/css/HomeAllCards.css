@@ -251,6 +251,9 @@
     .one_pice ul li {
         font-size: 16px;
     }
+    .addToCart .MuiSvgIcon-root {
+        font-size: 20px;
+    }
 
 }
 
@@ -270,6 +273,15 @@
     .one_pice ul li .Off {
         font-size: 12px;
     }
+    button {
+        font-size: 12px;
+        padding: 0px 0px;
+    }
+    .addToCart {
+        
+        top: 0px;
+    }
+   
 }
 
 
@@ -289,7 +301,7 @@
         font-size: 12px;
     }
     .addToCart .MuiSvgIcon-root {
-        font-size: 22px;
+        font-size: 20px;
     }
 }
 
@@ -326,6 +338,10 @@
     }
     .addToCart .MuiSvgIcon-root {
         font-size: 23px;
+    }
+    .addToCart {
+        
+        top: 3px;
     }
 }
 /* Media  Screen - pick_up - End */
