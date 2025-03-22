@@ -303,6 +303,12 @@
     .addToCart .MuiSvgIcon-root {
         font-size: 20px;
     }
+    .RemoveCart {
+       top: 0px;  
+    }
+    .RemoveCart .MuiSvgIcon-root {
+        font-size: 18px;
+    }
 }
 
 
@@ -342,6 +348,12 @@
     .addToCart {
         
         top: 3px;
+    }
+    .RemoveCart {
+        top: 3px;
+    }
+    .RemoveCart .MuiSvgIcon-root {
+        font-size: 23px;
     }
 }
 /* Media  Screen - pick_up - End */
