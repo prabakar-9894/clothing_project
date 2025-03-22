@@ -139,6 +139,13 @@
     .addToCart .MuiSvgIcon-root {
         font-size: 22px;
     }
+    .RemoveCart .MuiSvgIcon-root {
+        color: #a70265;
+        font-size: 20px;
+    }
+    .RemoveCart {
+        top: 1px;
+    }
 }
 
 @media screen and (max-width:850px){
@@ -254,7 +261,12 @@
     .addToCart .MuiSvgIcon-root {
         font-size: 20px;
     }
-
+    .RemoveCart {
+        top: 0px;  
+     }
+     .RemoveCart .MuiSvgIcon-root {
+         font-size: 18px;
+     }
 }
 
 @media screen and (max-width:500px){
