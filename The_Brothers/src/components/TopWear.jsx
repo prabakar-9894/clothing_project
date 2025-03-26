@@ -6,9 +6,10 @@ import '/css/FilterHead.css'
 import '/css/TopWear.css'
 import proimg from '/assets/pro_img_2.png'
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 const TopWear = () => {
-    const {TopWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { setPickId,TopWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
     
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -16,8 +17,10 @@ const TopWear = () => {
       const [selectedRating, setSelectedRating] = useState(false);
       const [isOfferChecked, setIsOfferChecked] = useState(false);
       const [selectedPrice, setSelectedPrice] = useState("all");
+      // const [alPrice, setAlPrice] = useState(true);
       const [filteredProducts, setFilteredProducts] = useState(TopWearCollection);
 
+      
 
               const handleCategoryChange = (event) => {
                 const { value, checked } = event.target;
@@ -32,6 +35,7 @@ const TopWear = () => {
 
                const handleFilterChange = (event) => {
                 setSelectedPrice(event.target.value);
+                // setAlPrice(event.target.value);
               };
 
               
@@ -40,7 +44,14 @@ const TopWear = () => {
                 setIsOfferChecked(event.target.checked);
               };
 
-              const filterAndSortProducts = () => {
+
+              
+             
+
+
+
+
+              const filterAndSortProducts = async () => {
                 let filtered = TopWearCollection;
             
 
@@ -76,22 +87,47 @@ const TopWear = () => {
                   return false;
                 });
 
+                  // Sort products based on selected order
+  // if (selectedPrice === "lowToHigh") {
+  //   filtered = filtered.sort((a, b) => a.Price - b.Price); // Ascending order
+  // } else if (selectedPrice === "highToLow") {
+  //   filtered = filtered.sort((a, b) => b.Price - a.Price); // Descending order
+  // }
 
-               
+  // if (selectedPrice === "lowToHigh") {
+  //   filtered = filtered.sort((a, b) => a.Price - b.Price); // Ascending order
+  // } else if (selectedPrice === "highToLow") {
+  //   filtered = filtered.sort((a, b) => b.Price - a.Price); // Descending order
+  // }
+
+
+              
             
                 setFilteredProducts(filtered);
               };
-            
+
               useEffect(() => {
-                filterAndSortProducts();
-              }, [selectedCategories, selectedRating, isOfferChecked, selectedPrice,searchQuery]);
-          
+
+
+                // setFilteredProducts(filtered);
+                 filterAndSortProducts();
+              }, [selectedCategories, selectedRating, isOfferChecked, selectedPrice,searchQuery])
+              
               function search(e){
                 if(e.key ==='Enter'){
                  setSearchQuery(e.target.value)
                  filterAndSortProducts();
                 }
              }
+            //  function FilterPrices(FilPrice){
+            //   let filtereds = TopWearCollection;
+            //   if (FilPrice === "lowToHigh") {
+            //     filtereds = filtereds.sort((a, b) => a.Price - b.Price); // Ascending order
+            //   } else if (FilPrice === "highToLow") {
+            //     filtereds = filtereds.sort((a, b) => b.Price - a.Price); // Descending order
+            //   }
+            //   setFilteredProducts(filtereds)
+            // }
 
             
        
@@ -136,6 +172,29 @@ const TopWear = () => {
           </label>
         ))}
               
+
+              {/* <label>
+  <input
+    type="checkbox"
+    value="lowToHigh"
+    checked={selectedPrice === "lowToHigh"}
+    onChange={(e) => setSelectedPrice(e.target.value)}
+    // onChange={handleFilterChange}
+  />
+  Low to High
+</label>
+<label>
+  <input
+    type="checkbox"
+    value="highToLow"
+    checked={selectedPrice === "highToLow"}
+    onChange={(e) => setSelectedPrice(e.target.value)}
+    // onChange={handleFilterChange}
+  />
+  High to Low
+</label> */}
+{/* <button onChange={()=>setSelectedPrice("lowToHigh")}>Low to high</button><br />
+<button onChange={()=>setSelectedPrice("highToLow")}>High to Low</button> */}
 
               
                 </div> 
@@ -213,7 +272,9 @@ const TopWear = () => {
 
   <div key={topwears._id}>
     <div className="one_pice_TopWear">
-        <img src={topwears.Image} alt="" />
+        <Link to="/ViewDetails" onClick={()=>setPickId(topwears._id)}>
+        <img src={`${import.meta.env.VITE_BACKEND_URL}${topwears.Image}`} alt="" />
+        </Link>
         <ul>
             <li className='CartBtnLiTopWear'>{topwears.Type} 
               <span className='SpanRating' ><StarRateIcon className='Rating' /> {topwears.Rating}</span>

@@ -11,7 +11,7 @@ function HeroPage() {
     <CarouselDiv>
       { HerobannerCollection.map((heroOneBanner)=>(
         <CarouselDiv.Item key={heroOneBanner._id}>
-          <img src={heroOneBanner.img} alt="Image 1" />
+          <img src={`${import.meta.env.VITE_BACKEND_URL}${heroOneBanner.img}`} alt="Image 1" />
         </CarouselDiv.Item>
       ))
       }

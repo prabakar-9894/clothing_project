@@ -1,9 +1,10 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext,useState,useEffect } from 'react'
 import { ShopContext } from '../App'
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 const AddCartTshirt = ({TshirtProduct}) => {
-    const {cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
     
 
      const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
@@ -35,6 +36,10 @@ const AddCartTshirt = ({TshirtProduct}) => {
                  }
                };
 
+
+
+
+
   return (
     <>
 
@@ -42,7 +47,9 @@ const AddCartTshirt = ({TshirtProduct}) => {
 
 <div key={TshirtProduct._id}>
     <div className="one_pice">
-        <img src={TshirtProduct.Image} alt="" />
+      <Link to="/ViewDetails" onClick={()=>setPickId(TshirtProduct._id)}>
+        <img src={`${import.meta.env.VITE_BACKEND_URL}${TshirtProduct.Image}`} alt="" />
+        </Link>
         <ul>
         <li className='CartBtnLi'>
               {TshirtProduct.Type}

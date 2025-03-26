@@ -6,7 +6,7 @@ import axios from "axios"
 
 
 const BestSellsOfWeek = ({BestProduct}) => {
-    const {setBestId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const {setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
      const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
          
@@ -45,8 +45,8 @@ const BestSellsOfWeek = ({BestProduct}) => {
     <>
 <div key={BestProduct._id}>
  <div className="one_pice">
-         <Link to='/BestWeekView' onClick={()=>setBestId(BestProduct.Id)}>
-         <img src={BestProduct.Image} alt="" />
+         <Link to='/ViewDetails' onClick={()=>setPickId(BestProduct._id)}>
+         <img src={`${import.meta.env.VITE_BACKEND_URL}${BestProduct.Image}`} alt="" />
          </Link>
          <ul>
          <li className='CartBtnLi'>

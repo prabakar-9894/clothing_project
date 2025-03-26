@@ -50,8 +50,8 @@ const PickUpLeftOff = ({ PickProduct }) => {
     return (
       <div>
         <div className="one_pice" key={PickProduct._id}>
-        <Link to='/PickUpView' onClick={()=>setPickId(PickProduct.Id)}>
-        <img src={PickProduct.Image} alt="" />
+        <Link to='/ViewDetails' onClick={()=>setPickId(PickProduct._id)}>
+        <img src={`${import.meta.env.VITE_BACKEND_URL}${PickProduct.Image}`} alt="img" />
         </Link>
         <ul>
 

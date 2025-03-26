@@ -10,7 +10,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 const PickView = () => {
-    const {PickId,PickUpDataBaseCollection,FilProductPick,setFilProductPick} = useContext(ShopContext);
+    const {PickId,AllProductsCollection,FilProductPick,setFilProductPick} = useContext(ShopContext);
 
     const [pickOne,setPickOne] = useState(true);
     const [pickTwo,setPickTwo] = useState(false);
@@ -33,9 +33,9 @@ const PickView = () => {
     }
 
        useEffect(() => {
-                setFilProductPick(PickUpDataBaseCollection.filter((u) => u.Id === PickId));
+                setFilProductPick(AllProductsCollection.filter((u) => u._id === PickId));
            
-        }, [PickId, PickUpDataBaseCollection]);
+        }, [PickId, AllProductsCollection]);
         
         $(document).ready(function(){
             $('.Size-S').click(function(){
@@ -92,14 +92,14 @@ const PickView = () => {
         <Col lg={6} md={6} sm={6} xs={12}>
             <div className="left_1">
                 <div className="sub_img_1">
-                    <img onClick={PickOne} src={prods.Image} alt="" />
-                    <img onClick={PickTwo} src={prods.img2} alt="" />
-                    <img onClick={PickThree} src={prods.img3} alt=""  />
+                    <img onClick={PickOne} src={`${import.meta.env.VITE_BACKEND_URL}${prods.Image}`} alt="" />
+                    <img onClick={PickTwo} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" />
+                    <img onClick={PickThree} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt=""  />
                 </div>
                     <div className='bigImg'>
-                        { pickOne === true ? <img src={prods.Image} alt="" /> : 
-                        pickTwo === true ? <img src={prods.img2} alt="" /> :
-                        pickThree === true ? <img src={prods.img3} alt="" />:""}
+                        { pickOne === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.Image}`} alt="" /> : 
+                        pickTwo === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" /> :
+                        pickThree === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt="" />:""}
                 </div>
                 
             </div>

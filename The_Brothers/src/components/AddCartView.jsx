@@ -34,9 +34,9 @@ const AddCartView = ({ product }) => {
     return (
         <>
 
-
+        
 <td className="td_2">
-  <img src={product.Image} alt={product.Type} className="product-image" /> 
+  <img src={`${import.meta.env.VITE_BACKEND_URL}${product.Image}`} alt={product.Type} className="product-image" /> 
 </td>
 
 <td className="td_4">

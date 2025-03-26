@@ -27,29 +27,38 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(morgan('dev'));
+
+// User image store :
+
+app.use("/img/uploads", express.static(path.join(__dirname, "uploadsImages"), {
+  setHeaders: (res) => {
+    res.set("Cross-Origin-Resource-Policy", "same-site"); // ✅ Allow cross-origin access
+  }
+}));
+
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
-app.use(express.static(path.join(__dirname,"/public/image")));
+
+
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
 });
-app.use('/AllProducts',ProductRouter); 
+
+// AllProducts image store :
+
+app.use('/',ProductRouter); 
 app.use('/',UserRouter);
 app.use('/',CartRouter);
 
 
-// const MONGO_URI = 'mongodb://127.0.0.1:27017/thebrothers';
-// MongoDB Connection
+
 
 const MONGO_URI = process.env.MONGO_URI;
 
 
-// mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch(err => console.error('MongoDB connection error:', err));
-
 mongoose.connect(MONGO_URI)
-  .then(() => console.log('Connected to MongoDB'))
+  .then(() => console.log('MongoDB Connected successfuly'))
   .catch(err => {
     console.error('MongoDB connection error:', err.message);
     process.exit(1); // Graceful exit

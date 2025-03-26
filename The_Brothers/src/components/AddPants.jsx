@@ -1,11 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect,useState } from 'react'
 import { ShopContext } from '../App'
 import { Container, Row, Col } from 'react-bootstrap'
 import '/css/AddCart.css'
 import AddCartPants from './AddCartPants'
 
 const AddPants = () => {
-  const {Pants,KidsCollection,setKidsCollection} = useContext(ShopContext);
+  const {AllProductsCollection} = useContext(ShopContext);
+
+  const [KidsCollection,setKidsCollection] = useState([]);
+  useEffect(()=>{
+    setKidsCollection(AllProductsCollection.filter((pickupleft)=> pickupleft.Categorys === "Kids"));
+   },[AllProductsCollection])
+
   return (
     <>
       <div className="pick_up">

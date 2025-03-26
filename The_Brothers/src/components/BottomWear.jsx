@@ -6,19 +6,21 @@ import '/css/FilterHead.css'
 import '/css/BottomWear.css'
 import proimg from '/assets/pro_img_2.png'
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 
 const BottomWear = () => {
-    const {BottomWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { setPickId,BottomWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
         const [selectedCategories, setSelectedCategories] = useState([]);
         const [selectedRating, setSelectedRating] = useState(false);
         const [isOfferChecked, setIsOfferChecked] = useState(false);
         const [selectedPrice, setSelectedPrice] = useState("all");// null for no sort, "asc" for low to high, "desc" for high to low
         const [searchQueryBottom, setSearchQueryBottom] = useState('');
+        // const [BottomWearCollection,setBottomWearCollection] = useState([]);
         const [filteredProducts, setFilteredProducts] = useState(BottomWearCollection);
   
-  
+
                 const handleCategoryChangeBottomWear = (event) => {
                   const { value, checked } = event.target;
                   setSelectedCategories((prevCategories) => 
@@ -77,10 +79,13 @@ const BottomWear = () => {
                   setFilteredProducts(filtered);
                 };
 
-               useEffect(() => {
-                filterAndSortProductsBottomWear();
-               }, [selectedCategories, selectedRating, isOfferChecked, selectedPrice,searchQueryBottom]);
-                          
+
+                
+        useEffect(() => {
+          // setBottomWearCollection(AllProductsCollection.filter((pickupleft)=> pickupleft.Categorys === "BottomWears"));
+          filterAndSortProductsBottomWear();
+         }, [selectedCategories, selectedRating, isOfferChecked, selectedPrice,searchQueryBottom]);
+                      
   
                function searchBottomWear(e){
                 if(e.key ==='Enter'){
@@ -200,7 +205,9 @@ const BottomWear = () => {
 
                 <div key={bottomwears._id}>
                 <div className="one_pice_TopWear">
-                    <img src={bottomwears.Image} alt="" />
+                    <Link to="/ViewDetails" onClick={()=>setPickId(bottomwears._id)}>
+                    <img src={`${import.meta.env.VITE_BACKEND_URL}${bottomwears.Image}`} alt="" />
+                    </Link>
                     <ul>
                         <li className='CartBtnLiTopWear'>{bottomwears.Type} 
                           <span className='SpanRating' ><StarRateIcon className='Rating' /> {bottomwears.Rating}</span>

@@ -1,4 +1,4 @@
-import React, {  useContext } from 'react'
+import React, {  useContext, useEffect,useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import HeroPage from './components/HeroPage'
 import PickUpLeftOff from './components/PickUpLeftOff'
@@ -12,7 +12,20 @@ import { ShopContext } from './App'
 
 
 const Home = () => {
-const {PickUpDataBaseCollection,BestOfweekCollection,TopOfDayCollection} = useContext(ShopContext)
+const {AllProductsCollection} = useContext(ShopContext);
+
+const [PickUpDataBaseCollection,setPickUpDataBaseCollection] = useState([]);
+  const [TopOfDayCollection,setTopOfDayCollection] = useState([]);
+  const [BestOfweekCollection,setBestOfweekCollection] = useState([]);
+
+useEffect(()=>{
+
+  setPickUpDataBaseCollection(AllProductsCollection.filter((pickupleft)=> pickupleft.Categorys === "PickUp"));
+  setTopOfDayCollection(AllProductsCollection.filter((pickupleft)=> pickupleft.Categorys === "TopDay"));
+  setBestOfweekCollection(AllProductsCollection.filter((pickupleft)=> pickupleft.Categorys === "BestWeek"));
+
+},[AllProductsCollection])
+
 
   return (
     <>

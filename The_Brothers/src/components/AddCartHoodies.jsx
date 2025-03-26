@@ -1,12 +1,14 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext,useEffect,useState } from 'react'
 import { ShopContext } from '../App'
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 
 const AddCartHoodies = ({HoodieProduct}) => {
 
-    const {cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { AllProductsCollection,setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
+   
     const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
             
               const addToCart = async (pro) => {
@@ -36,12 +38,17 @@ const AddCartHoodies = ({HoodieProduct}) => {
                 }
               };
 
+
+
+
   return (
     <>
 
 <div key={HoodieProduct._id}>
     <div className="one_pice">
-        <img src={HoodieProduct.Image} alt="" />
+    <Link to="/ViewDetails" onClick={()=>setPickId(HoodieProduct._id)}>
+        <img src={`${import.meta.env.VITE_BACKEND_URL}${HoodieProduct.Image}`} alt="" />
+        </Link>
         <ul>
         <li className='CartBtnLi'>
               {HoodieProduct.Type}

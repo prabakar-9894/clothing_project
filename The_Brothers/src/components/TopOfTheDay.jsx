@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios"
 
 const TopOfTheDay = ({TopProduct}) => {
-    const {setTopId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const {setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
    const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
      
@@ -42,8 +42,8 @@ const TopOfTheDay = ({TopProduct}) => {
  
 <div  key={TopProduct._id}>
 <div className="one_pice">
-         <Link to='/TopDayView' onClick={()=>setTopId(TopProduct.Id)}>
-         <img src={TopProduct.Image} alt="" />
+         <Link to='/ViewDetails' onClick={()=>setPickId(TopProduct._id)}>
+         <img src={`${import.meta.env.VITE_BACKEND_URL}${TopProduct.Image}`} alt="" />
          </Link>
          <ul>
          <li className='CartBtnLi'>
