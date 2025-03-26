@@ -50,7 +50,8 @@ const createRoute = (path, Model) => {
             if (!req.file) return res.status(400).json({ message: "No image uploaded" });
 
             const { Name, Price } = req.body;
-            const Image = `http://localhost:5011/img/uploads/${req.file.filename}`;
+            const Image = `https://clothing-project-api-pir6.onrender.com/${req.file.filename}`;
+            // const Image = `http://localhost:5011/img/uploads/${req.file.filename}`;
 
             // Save to MongoDB
             const newProduct = await Model.create({ Name, Image, Price });
