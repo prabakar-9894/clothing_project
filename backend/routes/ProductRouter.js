@@ -27,30 +27,44 @@ import multer from "multer";
 import fs from "fs";
 import { Herobanner, Allproductsdata } from "../models/products.js";
 
+
 const router = express.Router();
 
 // Multer Storage Configuration
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const uploadPath = path.join("uploadsImages");
-        fs.mkdirSync(uploadPath, { recursive: true });
-        cb(null, uploadPath);
+        // const uploadPath = path.join("uploadsImages");
+        // fs.mkdirSync(uploadPath, { recursive: true });
+        cb(null, "uploadsImages/");
     },
     filename: (req, file, cb) => {
         cb(null, `${Date.now()}${path.extname(file.originalname)}`);
-    },
+    }
 });
 
-const upload = multer({ storage });
+const fileFilter = (req, file, cb) => {
+    if(file.mimetype.startsWith("image/")) {
+        cb(null, true);
+    } else {
+        cb(new Error("Only image are allowed!"),false);
+    }
+};
+
+
+const upload = multer({ storage, fileFilter });
 
 // Route Factory for Adding Products
 const createRoute = (path, Model) => {
-    router.post(path, upload.single("image"), async (req, res) => {
+    router.post(path, upload.single("Image"), async (req, res) => {
         try {
             if (!req.file) return res.status(400).json({ message: "No image uploaded" });
 
             const { Name, Price } = req.body;
+
             const Image = `https://clothing-api-project-qada.onrender.com/img/uploads/${req.file.filename}`
+            // const Image = `http://localhost:5011/img/uploads/${req.file.filename}`
+            // const Image = `/img/uploads/${req.file.filename}`
+            
             // Save to MongoDB
             const newProduct = await Model.create({ Name, Image, Price });
 
@@ -61,7 +75,7 @@ const createRoute = (path, Model) => {
     });
 }
 
-createRoute("/herobanners", Herobanner);
+createRoute("/herobanners",multer, Herobanner);
 createRoute("/allproductsdatas", Allproductsdata);
 
 // Route Factory for Fetching Data
@@ -81,3 +95,7 @@ createProductRoute("/herobannersData", Herobanner);
 createProductRoute("/allproductsData", Allproductsdata);
 
 export default router
+
+
+
+// multer
