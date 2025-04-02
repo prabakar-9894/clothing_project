@@ -61,21 +61,28 @@ const createRoute = (path, Model) => {
 
             const { Name, Price } = req.body;
 
-            const Image = `https://clothing-api-project-qada.onrender.com/img/uploads/${req.file.filename}`
+            const Image = req.file ? `/img/uploads/${req.file.filename}`: null;
             // const Image = `http://localhost:5011/img/uploads/${req.file.filename}`
             // const Image = `/img/uploads/${req.file.filename}`
             
             // Save to MongoDB
-            const newProduct = await Model.create({ Name, Image, Price });
+            const newProduct = await Model.create({
+                Name,
+                Image,
+                Price 
+            });
 
-            res.status(201).json({ message: "Product added successfully!", product: newProduct });
+            res.status(201).json({
+                 message: "Product added successfully!",
+                 newProduct 
+                });
         } catch (error) {
             res.status(500).json({ message: "Error adding product", error });
         }
     });
 }
 
-createRoute("/herobanners",multer, Herobanner);
+createRoute("/herobanners", Herobanner);
 createRoute("/allproductsdatas", Allproductsdata);
 
 // Route Factory for Fetching Data
