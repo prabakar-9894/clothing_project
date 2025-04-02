@@ -93,8 +93,14 @@ const PickView = () => {
             <div className="left_1">
                 <div className="sub_img_1">
                     <img onClick={PickOne} src={`${import.meta.env.VITE_BACKEND_URL}${prods.Image}`} alt="" />
-                    <img onClick={PickTwo} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" />
-                    <img onClick={PickThree} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt=""  />
+                    { prods.img2 &&  (
+                         <img onClick={PickTwo} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" />
+                    )}
+                    {prods.img3 && (
+                         <img onClick={PickThree} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt=""  />
+                    )}
+                     {/* <img onClick={PickTwo} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" /> */}
+                     {/* <img onClick={PickThree} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt=""  /> */}
                 </div>
                     <div className='bigImg'>
                         { pickOne === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.Image}`} alt="" /> : 
