@@ -1,10 +1,14 @@
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "/css/AddUser.css";
+import { ShopContext } from "../App";
 
 const AddUser = () => {
+
+  const { UserId, setUserId } = useContext(ShopContext);
+
   const [user, setUser] = useState({
     name: "",
     mail: "",
@@ -17,6 +21,8 @@ const AddUser = () => {
   const [errors, setErrors] = useState({});
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null); // To display the uploaded image URL
+  
+
   const navigate = useNavigate();
 
   // Handle input changes
@@ -90,12 +96,17 @@ const AddUser = () => {
 
     try {
       // Send the form data to the backend API
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, formData);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
+      
       if (response.status === 201) {
         // Success! Save the token and image URL
         localStorage.setItem("token", response.data.token);
+        setUserId(response.data.id); // Disp
         setUploadedImage(response.data.imageUrl); // Save the image URL for display
+       
         alert("User added successfully!");
         navigate("/"); // Navigate to a welcome page or dashboard
       }
@@ -104,6 +115,7 @@ const AddUser = () => {
       alert(err.response?.data?.message || "Something went wrong!");
     }
   };
+  console.log(" add UserId : ",UserId);
 
   return (
     <div className="AddformAlldata">
@@ -188,6 +200,7 @@ const AddUser = () => {
         </button>
         <Link to="/login">Login Account</Link>
       </form>
+       
 
     
     </div>

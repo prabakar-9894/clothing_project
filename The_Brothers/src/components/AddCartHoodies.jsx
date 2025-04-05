@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 
 const AddCartHoodies = ({HoodieProduct}) => {
 
-    const { AllProductsCollection,setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { UserId, setUserId,AllProductsCollection,setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
    
-    const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
+    // const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
             
               const addToCart = async (pro) => {
                 const newCartItem = {
@@ -67,10 +67,11 @@ const AddCartHoodies = ({HoodieProduct}) => {
                 <button onClick={() => addToCart(HoodieProduct)} className='addToCart'><AddShoppingCartIcon /></button>
               )}
             </li>
-            <li>Rs.{HoodieProduct.Price}
-               <span style={{ textDecoration:"line-through", color:"#000" }}> M.R.P : Rs.{HoodieProduct.Mrp}</span>
-                <span className='Off'> {HoodieProduct.Offer}% OFF</span>
-               </li>
+            <li className='rsOffers'><div>Rs.{HoodieProduct.Price}
+                <span className='rupe' style={{ textDecoration:"line-through" }}>  Rs.{HoodieProduct.Mrp}</span>
+                </div>
+                 <span className='Off'> {HoodieProduct.Offer}% OFF</span>
+                </li>
         </ul>
     </div>      
     </div>

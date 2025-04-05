@@ -1,13 +1,18 @@
 
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShopContext } from '../App';
 import axios from "axios";
 import "/css/Login.css"; 
 
 const Login = () => {
+
+    const { UserId, setUserId } = useContext(ShopContext);
+
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState(""); 
   const [message, setMessage] = useState(""); 
+
   const navigate = useNavigate();
 
   // Handle form submission
@@ -21,9 +26,15 @@ const Login = () => {
         password,
       });
 
+        // Extract user ID and token from response
+        const { id, token } = response.data;
+
       if (response.status === 200) {
-        // Save the JWT token to local storage
-        localStorage.setItem("token", response.data.token);
+        // Store token and user ID in localStorage
+      localStorage.setItem("userID", id);
+      localStorage.setItem("token", token);
+      setUserId(id);
+
         alert("Login successful!");
         setMessage(""); // Clear previous messages
         navigate("/"); // Redirect to the homepage or dashboard
@@ -37,6 +48,8 @@ const Login = () => {
       }
     }
   };
+
+  console.log("UserID log :",UserId);
 
   return (
     <div className="login-container">
@@ -78,6 +91,7 @@ const Login = () => {
 
       {/* Display Message (Error or Success) */}
       {message && <p className="message">{message}</p>}
+
     </div>
   );
 };

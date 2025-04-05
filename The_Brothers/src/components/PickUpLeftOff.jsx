@@ -1,15 +1,13 @@
 
-import React, { useContext } from 'react'
+import React, { useContext,useEffect,useState } from 'react'
 import '/css/PickUpLeftOff.css'
 import { ShopContext } from '../App';
 import { Link } from 'react-router-dom';
-import axios from "axios"
+import axios from "axios";
 
 const PickUpLeftOff = ({ PickProduct }) => {
-    const { cartCollection,setCartCollection,setPickId,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
-    const UserId = "67d2d68a07d12890c143b768"; // Fixed static UserId
-   
-  
+    const { UserId, setUserId,cartCollection,setCartCollection,setPickId,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+
     const addToCart = async (pro) => {
 
 
@@ -74,10 +72,11 @@ const PickUpLeftOff = ({ PickProduct }) => {
 
             </li>
 
-            <li>Rs.{PickProduct.Price}
-               <span style={{ textDecoration:"line-through", color:"#000" }}> M.R.P : Rs.{PickProduct.Mrp}</span>
-                <span className='Off'> {PickProduct.Offer}% OFF</span>
-               </li>
+            <li className='rsOffers'><div>Rs.{PickProduct.Price}
+                <span className='rupe' style={{ textDecoration:"line-through" }}>  Rs.{PickProduct.Mrp}</span>
+                </div>
+                 <span className='Off'> {PickProduct.Offer}% OFF</span>
+                </li>
         </ul>
         </div>
       </div>

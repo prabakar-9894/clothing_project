@@ -34,12 +34,25 @@
     font-size: 15px;
     font-weight: 500;
     color: orange;
+    margin-top: 5px;
 }
 .one_pice_TopWear ul li{
     list-style-type: none;
-    color:  rgb(95, 95, 95);
+    color: #000;
     font-size: 18px;
 }
+.one_pice_TopWear ul .rsOffersTopWear{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    margin-top: 0px;
+}
+
+.one_pice_TopWear ul .rsOffersTopWear .rupeTopWear{
+    color:  rgb(169, 169, 169);
+}
+
+
 
 
 

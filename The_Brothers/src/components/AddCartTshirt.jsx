@@ -4,10 +4,10 @@ import axios from "axios"
 import { Link } from 'react-router-dom';
 
 const AddCartTshirt = ({TshirtProduct}) => {
-    const { setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { UserId, setUserId,setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
     
 
-     const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
+    //  const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
              
                const addToCart = async (pro) => {
                  const newCartItem = {
@@ -68,10 +68,11 @@ const AddCartTshirt = ({TshirtProduct}) => {
                 <button onClick={() => addToCart(TshirtProduct)} className='addToCart'><AddShoppingCartIcon /></button>
               )}
             </li>
-            <li>Rs.{TshirtProduct.Price}
-               <span style={{ textDecoration:"line-through", color:"#000" }}> M.R.P : Rs.{TshirtProduct.Mrp}</span>
-                <span className='Off'> {TshirtProduct.Offer}% OFF</span>
-               </li>
+            <li className='rsOffers'><div>Rs.{TshirtProduct.Price}
+                <span className='rupe' style={{ textDecoration:"line-through" }}>  Rs.{TshirtProduct.Mrp}</span>
+                </div>
+                 <span className='Off'> {TshirtProduct.Offer}% OFF</span>
+                </li>
         </ul>
     </div>      
     </div>

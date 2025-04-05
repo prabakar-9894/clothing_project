@@ -21,7 +21,8 @@ CartRouter.post('/api/carts', async (req, res) => {
     const { userId, ProductId, Image, Name, Quantity, PricePerUnit } = req.body;
 
     if (!userId || !ProductId || !Image || !Name || !Quantity || !PricePerUnit) {
-      return res.status(400).json({ message: 'All fields are required' });
+      // return res.status(400).json({ message: 'All fields are required' });
+        return res.status(300).json({ message: 'You must Sign or Login Account' });
     }
 
     const Price = PricePerUnit * Quantity;

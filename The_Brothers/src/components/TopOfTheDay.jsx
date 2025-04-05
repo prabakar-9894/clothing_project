@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import axios from "axios"
 
 const TopOfTheDay = ({TopProduct}) => {
-    const {setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { UserId, setUserId,setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
-   const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
+  //  const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
      
        const addToCart = async (pro) => {
          const newCartItem = {
@@ -63,8 +63,9 @@ const TopOfTheDay = ({TopProduct}) => {
                 <button onClick={() => addToCart(TopProduct)} className='addToCart'><AddShoppingCartIcon /></button>
               )}
             </li>
-             <li>Rs.{TopProduct.Price}
-                <span style={{ textDecoration:"line-through", color:"#000" }}> M.R.P : Rs.{TopProduct.Mrp}</span>
+            <li className='rsOffers'><div>Rs.{TopProduct.Price}
+                <span className='rupe' style={{ textDecoration:"line-through" }}>  Rs.{TopProduct.Mrp}</span>
+                </div>
                  <span className='Off'> {TopProduct.Offer}% OFF</span>
                 </li>
          </ul>

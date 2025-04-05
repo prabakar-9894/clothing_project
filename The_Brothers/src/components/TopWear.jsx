@@ -9,7 +9,7 @@ import axios from "axios"
 import { Link } from 'react-router-dom';
 
 const TopWear = () => {
-    const { setPickId,TopWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { UserId, setUserId,setPickId,TopWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
     
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -238,7 +238,7 @@ const TopWear = () => {
 
 
             filteredProducts.map((topwears) => {
-              const UserId = "67d2d68a07d12890c143b768"; // Fixed static UserId
+              // const UserId = "67d2d68a07d12890c143b768"; // Fixed static UserId
          
               const addToCart = async (pro) => {
                 const newCartItem = { 
@@ -293,10 +293,15 @@ const TopWear = () => {
                               <button onClick={() => addToCart(topwears)} className='addToCart'><AddShoppingCartIcon /></button>
                             )}
                             </li>
-            <li>Rs.{topwears.Price}
+            {/* <li>Rs.{topwears.Price}
                <span style={{ textDecoration:"line-through", color:"#000" }}> M.R.P : Rs.{topwears.Mrp}</span>
                 <span className='OffTopWear'> {topwears.Offer}% OFF</span>
-            </li>
+            </li> */}
+            <li className='rsOffersTopWear'><div>Rs.{topwears.Price}
+                <span className='rupeTopWear' style={{ textDecoration:"line-through" }}>  Rs.{topwears.Mrp}</span>
+                </div>
+                 <span className='OffTopWear'> {topwears.Offer}% OFF</span>
+                </li>
         </ul>
     </div>      
   </div>

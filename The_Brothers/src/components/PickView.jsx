@@ -91,6 +91,12 @@ const PickView = () => {
                 <Row key={prods.Id}>
         <Col lg={6} md={6} sm={6} xs={12}>
             <div className="left_1">
+               
+                    <div className='bigImg'>
+                        { pickOne === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.Image}`} alt="" /> : 
+                        pickTwo === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" /> :
+                        pickThree === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt="" />:""}
+                </div>
                 <div className="sub_img_1">
                     <img onClick={PickOne} src={`${import.meta.env.VITE_BACKEND_URL}${prods.Image}`} alt="" />
                     { prods.img2 &&  (
@@ -99,15 +105,9 @@ const PickView = () => {
                     {prods.img3 && (
                          <img onClick={PickThree} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt=""  />
                     )}
-                     {/* <img onClick={PickTwo} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" /> */}
-                     {/* <img onClick={PickThree} src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt=""  /> */}
+        
                 </div>
-                    <div className='bigImg'>
-                        { pickOne === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.Image}`} alt="" /> : 
-                        pickTwo === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.img2}`} alt="" /> :
-                        pickThree === true ? <img src={`${import.meta.env.VITE_BACKEND_URL}${prods.img3}`} alt="" />:""}
-                </div>
-                
+    
             </div>
         </Col>
         <Col lg={6} md={6} sm={6} xs={12}>
@@ -123,6 +123,15 @@ const PickView = () => {
                             </div>
                         </li>
                         <li><hr /></li>
+                        
+                        <li className='Prodails'><h2>Product details</h2></li>
+                        <li className='Prodails'><h4>Material composition :</h4> Cotton Blend</li>
+                        <li className='Prodails'><h4>Length :</h4>Standard Length</li>
+                        <li className='Prodails'><h4>Neck style :</h4>Collared Neck</li>
+                        <li className='Prodails'><h4>Country of Origin :</h4>India</li>
+                        
+                        <li><hr /></li>
+
                         <li><h5>Size</h5></li>
                         <li>
                             <button className='Size-S'>S</button><button className='Size-M'>M</button>
@@ -131,7 +140,9 @@ const PickView = () => {
                         <li><button className='DealBtn'>Limited time deal</button></li>
                         <li><p>M.R.P : <span className='RateCros' > Rs . 1799.00 </span><br /><span> Rs . {prods.Price}.00</span><span className='sales' >sale</span></p></li>
                         <li><h1 className='Off'>50%</h1></li>
+
                         <li><hr /></li>
+
                         <li className='AllDelivery'>
                             <div className='Delivery'>
                             <CurrencyExchangeIcon/><br />
@@ -150,12 +161,7 @@ const PickView = () => {
                             Top Brand
                             </div>
                         </li>
-                        <li><hr /></li>
-                        <li className='Prodails'><h2>Product details</h2></li>
-                        <li className='Prodails'><h4>Material composition :</h4> Cotton Blend</li>
-                        <li className='Prodails'><h4>Length :</h4>Standard Length</li>
-                        <li className='Prodails'><h4>Neck style :</h4>Collared Neck</li>
-                        <li className='Prodails'><h4>Country of Origin :</h4>India</li>
+                        
                     </ul>
                 </div>
         </Col>

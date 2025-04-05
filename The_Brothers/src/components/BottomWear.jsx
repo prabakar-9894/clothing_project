@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const BottomWear = () => {
-    const { setPickId,BottomWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { UserId, setUserId,setPickId,BottomWearCollection,StarRateIcon,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
         const [selectedCategories, setSelectedCategories] = useState([]);
         const [selectedRating, setSelectedRating] = useState(false);
@@ -172,7 +172,7 @@ const BottomWear = () => {
             ) : (
  
             filteredProducts.map((bottomwears) => {
-              const UserId = "67d2d68a07d12890c143b768"; // Fixed static UserId
+              // const UserId = "67d2d68a07d12890c143b768"; // Fixed static UserId
          
               const addToCart = async (pro) => {
                 const newCartItem = {
@@ -227,10 +227,15 @@ const BottomWear = () => {
                               <button onClick={() => addToCart(bottomwears)} className='addToCart'><AddShoppingCartIcon /></button>
                             )}
                             </li>
-                        <li>Rs.{bottomwears.Price}
+                        {/* <li>Rs.{bottomwears.Price}
                            <span style={{ textDecoration:"line-through", color:"#000" }}> M.R.P : Rs.{bottomwears.Mrp}</span>
                             <span className='OffTopWear'>{bottomwears.Offer}% OFF</span>
-                        </li>
+                        </li> */}
+                        <li className='rsOffersTopWear'><div>Rs.{bottomwears.Price}
+                <span className='rupeTopWear' style={{ textDecoration:"line-through" }}>  Rs.{bottomwears.Mrp}</span>
+                </div>
+                 <span className='OffTopWear'> {bottomwears.Offer}% OFF</span>
+                </li>
                     </ul>
                 </div>      
               </div>

@@ -62,9 +62,7 @@ const createRoute = (path, Model) => {
             const { Name, Price } = req.body;
 
             const Image = req.file ? `/img/uploads/${req.file.filename}`: null;
-            // const Image = `http://localhost:5011/img/uploads/${req.file.filename}`
-            // const Image = `/img/uploads/${req.file.filename}`
-            
+ 
             // Save to MongoDB
             const newProduct = await Model.create({
                 Name,

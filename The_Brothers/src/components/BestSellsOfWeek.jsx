@@ -6,9 +6,9 @@ import axios from "axios"
 
 
 const BestSellsOfWeek = ({BestProduct}) => {
-    const {setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { UserId, setUserId,setPickId,cartCollection,setCartCollection,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
 
-     const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
+    //  const [UserId] = useState("67d2d68a07d12890c143b768"); // Fixed static UserId
          
            const addToCart = async (pro) => {
              const newCartItem = {
@@ -66,8 +66,9 @@ const BestSellsOfWeek = ({BestProduct}) => {
                 <button onClick={() => addToCart(BestProduct)} className='addToCart'><AddShoppingCartIcon /></button>
               )}
             </li>
-             <li>Rs.{BestProduct.Price}
-                <span style={{ textDecoration:"line-through", color:"#000" }}> M.R.P : Rs.{BestProduct.Mrp}</span>
+             <li className='rsOffers'><div>Rs.{BestProduct.Price}
+                <span className='rupe' style={{ textDecoration:"line-through" }}>  Rs.{BestProduct.Mrp}</span>
+                </div>
                  <span className='Off'> {BestProduct.Offer}% OFF</span>
                 </li>
          </ul>

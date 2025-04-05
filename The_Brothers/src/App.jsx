@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-
 import Home from './Home';
 import Header from './components/Header';
 import Filter from './components/Filter';
@@ -40,6 +39,8 @@ const App = () => {
   const [totalCount,setTotalCount] = useState(0);
 
 
+ const [UserId, setUserId] = useState(null);
+
   const [users, setUsers] = useState([]);
 
 
@@ -70,6 +71,7 @@ const App = () => {
 
           axios.get(`${import.meta.env.VITE_BACKEND_URL}/allproductsData`),
           axios.get(`${import.meta.env.VITE_BACKEND_URL}/herobannersData`),
+          
 
         ]);
 
@@ -96,7 +98,7 @@ const App = () => {
 
   return (
     <>
-      <ShopContext.Provider value={{ BottomWearCollection,TopWearCollection,handleLogout,cartCollection,setCartCollection,users, setUsers,HerobannerCollection,setHerobannerCollection,AllProductsCollection,setAllProductsCollection,totalCount,setTotalCount,StarRateIcon,RemoveShoppingCartIcon,AddShoppingCartIcon,PickId,setPickId,FilProductPick,setFilProductPick,FilProductTop,FilProductBest,setFilProductTop,setFilProductBest,TshirtId,setTshirtId,CurrencyRupeeIcon}}>
+      <ShopContext.Provider value={{ UserId, setUserId,BottomWearCollection,TopWearCollection,handleLogout,cartCollection,setCartCollection,users, setUsers,HerobannerCollection,setHerobannerCollection,AllProductsCollection,setAllProductsCollection,totalCount,setTotalCount,StarRateIcon,RemoveShoppingCartIcon,AddShoppingCartIcon,PickId,setPickId,FilProductPick,setFilProductPick,FilProductTop,FilProductBest,setFilProductTop,setFilProductBest,TshirtId,setTshirtId,CurrencyRupeeIcon}}>
 
       <Router>
         <Header/>
@@ -121,37 +123,4 @@ const App = () => {
   )
 }
 
-export default App
-
-
-
-
-// KidsCollection,setKidsCollection,WomensCollection,setWomensCollection,MensCollection,setMensCollection,BottomWearCollection,setBottomWearCollection,TopWearCollection,setTopWearCollection,BestOfweekCollection,setBestOfweekCollection,TopOfDayCollection,setTopOfDayCollection,PickUpDataBaseCollection,setPickUpDataBaseCollection,
-
-
-
-
-
-
-// axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/pickuplefts`) ,
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/topofdays`) ,
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/bestofweeks`) ,
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/topwears`) ,
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/bottomwears`) ,
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/mens`) ,
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/womens`) ,
-          // axios.get(`${import.meta.env.VITE_BACKEND_URL}/AllProducts/kids`) ,
-
-
-
-
-
-
-            // setPickUpDataBaseCollection(pickup.data);
-        // setTopOfDayCollection(topofday.data);
-        // setBestOfweekCollection(bestofweek.data);
-        // setTopWearCollection(topwear.data);
-        // setBottomWearCollection(bottomwear.data);
-        // setMensCollection(men.data);
-        // setWomensCollection(women.data);
-        // setKidsCollection(kid.data);
+export default App;

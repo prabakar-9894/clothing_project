@@ -3,7 +3,7 @@ import mongoose, { Types } from 'mongoose';
 
   // Define Cart Schema
 const cartSchema = new mongoose.Schema({
-  userId: { type: String, required: true },
+  userId: { type: Types.ObjectId, required: true },
   ProductId: { type: Types.ObjectId, required: true },
   Image: { type: String, required: true },
   Name: { type: String, required: true },
