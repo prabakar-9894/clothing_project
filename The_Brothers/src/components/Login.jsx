@@ -47,10 +47,8 @@ const Login = () => {
         setMessage("An error occurred. Please try again."); // Default error message
       }
     }
-  };
-
-  console.log("UserID log :",UserId);
-
+  }
+  
   return (
     <div className="login-container">
       <h1>Login</h1>

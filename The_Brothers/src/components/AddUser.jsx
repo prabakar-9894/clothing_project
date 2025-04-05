@@ -115,7 +115,7 @@ const AddUser = () => {
       alert(err.response?.data?.message || "Something went wrong!");
     }
   };
-  console.log(" add UserId : ",UserId);
+
 
   return (
     <div className="AddformAlldata">
