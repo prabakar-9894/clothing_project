@@ -33,7 +33,8 @@
     cursor: pointer;
 }
 .Footer .footerContainer ul li .LogoImg{
-    width: 50px;
+    /* width: 50px; */
+    width: 100px;
 }
 .Footer .footerContainer ul li h3{
     margin: 0px 0px 15px 0px;
@@ -52,7 +53,7 @@
 
 @media screen and (max-width:767px){
     .Footer .footerContainer ul li .LogoImg {
-        width: 45px;
+        width: 80px;
     }
     .Footer .footerContainer ul .LogoAndName h3 {
         margin-left: 10px;
@@ -146,7 +147,13 @@
     }
 }
 
-   
+
+@media screen and (max-width:360px){
+    .Footer .footerContainer ul li .LogoImg {
+        width: 65px;
+    }
+}
+
 
 
 

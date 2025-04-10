@@ -12,7 +12,7 @@
 .header .conter_1{
     display: flex;
     justify-content: space-between;
-    padding: 0px 20px 0px 70px;
+    padding: 0px 20px 0px 0px;
     height: 56px;
 }
 .header .conter_1 ul{
@@ -27,7 +27,7 @@
     background-color: transparent;
 }
 .header .conter_1 ul #logo #logo_image{
-    width: 60px;
+    width: 100px;
     height: 80px;
 }
 .header .conter_1 ul #men {
@@ -121,7 +121,7 @@
     .header .conter_1 {
         display: flex;
         justify-content: space-between;
-        padding: 0px 20px 0px 25px;
+        padding: 0px 20px 0px 0px;
         height: 56px;
     }
    
@@ -144,14 +144,14 @@
         display: flex
 ;
         justify-content: space-between;
-        padding: 0px 20px 0px 25px;
+        padding: 0px 20px 0px 0px;
         height: 45px;
     }
     .header .conter_1 ul #men{
         height: 48px;
     }
     .header .conter_1 ul #logo #logo_image {
-        width: 55px;
+        width: 76px;
         height: 65px;
     }
     .header .conter_1 #sign_in {
@@ -206,13 +206,13 @@
         margin-top: 7px;
     }
     .header .conter_1 ul #logo #logo_image {
-        width: 43px;
+        width: 65px;
         height: 63px;
     }
     .header .conter_1 {
         display: flex;
         justify-content: space-between;
-        padding: 0px 20px 0px 10px;
+        padding: 0px 20px 0px 0px;
         height: 45px;
     }
     .header .conter_1 ul li a {
@@ -233,7 +233,7 @@
     .header .conter_1 {
         display: flex;
         justify-content: space-between;
-        padding: 0px 20px 0px 10px;
+        padding: 0px 20px 0px 0px;
         height: 40px;
     }
     .header .conter_1 ul #men {

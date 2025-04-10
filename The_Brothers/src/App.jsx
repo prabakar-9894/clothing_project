@@ -131,7 +131,7 @@ const App = () => {
                 <Route path='/BottomWear' element={<BottomWear />} />
                 <Route path="/add-user" element={<AddUser />} />
                 <Route path="/login" element={<Login />} />       
-                <Route path='/*' element={<NotFound/>} /> 
+                <Route path='*' element={<NotFound/>} /> 
             </Routes>
           <Footer/>
           </Router>

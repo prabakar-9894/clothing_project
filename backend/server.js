@@ -32,6 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet()); // Secure HTTP headers
 app.use(morgan('dev')); // Logger for debugging
 
+
 // Configure static file serving with CORS headers
 app.use("/img/uploads", express.static(path.join(__dirname, "uploadsImages"), {
   setHeaders: (res) => {
@@ -53,10 +54,17 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
+
+
 // Set up routers
 app.use('/', ProductRouter);
 app.use('/', UserRouter);
 app.use('/', CartRouter);
+
+// // after all other routes
+app.use((req, res) => {
+  res.status(404).sendFile(__dirname, '/public/notFound.html');
+});
 
 // MongoDB connection
 const MONGO_URI = process.env.MONGO_URI;
