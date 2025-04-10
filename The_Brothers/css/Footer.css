@@ -4,6 +4,7 @@
  background-color: #8d605d;
  text-transform: uppercase;
  font-family: "Afacad Flux", sans-serif;
+ box-shadow: 0px 0px 5px #ffffff;
 }
 .Footer .footerContainer{
     display: grid;

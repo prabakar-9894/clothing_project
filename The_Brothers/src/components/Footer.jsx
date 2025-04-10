@@ -25,18 +25,18 @@ const Footer = () => {
                 </ul>
                 <ul>
                     <li><h3>Company</h3></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Career</a></li>
-                    <li><a href="">Team</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Cookie Policy</a></li>
+                    <li><a href="*">About Us</a></li>
+                    <li><a href="*">Career</a></li>
+                    <li><a href="*">Team</a></li>
+                    <li><a href="*">Privacy Policy</a></li>
+                    <li><a href="*">Cookie Policy</a></li>
                 </ul>
                 <ul>
                     <li><h3>Contact us</h3></li>
                     <li><LocationOnIcon/>Thanjavur</li>
                     <li><PhoneIcon/>8585858585</li>
                     <li><EmailIcon/>Brothers@gmail.com</li>
-                    <li><a href="">Partner with us</a></li>
+                    <li><a href="*">Partner with us</a></li>
                     <li><InstagramIcon/><FacebookIcon/><LinkedInIcon/><TwitterIcon/></li>
                 </ul>
                 <ul>

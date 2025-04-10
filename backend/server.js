@@ -36,11 +36,16 @@ app.use(morgan('dev')); // Logger for debugging
 app.use("/img/uploads", express.static(path.join(__dirname, "uploadsImages"), {
   setHeaders: (res) => {
     res.set("Cross-Origin-Resource-Policy", "cross-origin"); // Allow cross-origin
+  }}));
+
+// Additional static file route
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')
+,{
+  setHeaders: (res) => {
+    res.set("Cross-Origin-Resource-Policy", "cross-origin"); // Allow cross-origin
   }
 }));
 
-// Additional static file route
-app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 // Error handling middleware
 app.use((err, req, res, next) => {

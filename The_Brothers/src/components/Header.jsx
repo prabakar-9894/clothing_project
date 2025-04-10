@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '/css/Header.css'
 import Logo from '/assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,18 +8,26 @@ import {Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ShopContext } from '../App';
 import axios from "axios";
+import Logout from './Logout';
+import "/css/Logout.css"
 
 
 const Header = () => {
 
-  const { users, setUsers} = useContext(ShopContext);
+  const { UserName,setUserName,users, setUsers, uploadedImage, setUploadedImage,UserId, setUserId } = useContext(ShopContext);
 
+  const [ShowLogOut,setShowLogOut] = useState(false);
 
  useEffect(() => {
 
+  if(UserId == null){
+    setShowLogOut(false);
+  }else if(UserId){
+    setShowLogOut(true);
+  }
 
 
-}, []); // Depend on showModal instead
+}, [UserId]); // Depend on showModal instead
 
 const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to Log out this Account?")) {
@@ -46,8 +54,18 @@ const handleDelete = async (id) => {
                         <li id="logo"><img src={Logo} alt="" id='logo_image' /></li>
                         <li id="men"><Link to='/' id="men_color">Home</Link></li>
                     </ul>
+                    {ShowLogOut == true ? (  
+                      <div className='LogDiv'>
+                        <img src={`${import.meta.env.VITE_BACKEND_URL}${uploadedImage}`} alt="" width={50} height={50}  />
+                        {/* <p>{UserName}</p> */}
+                        <Logout/> 
+                      </div>
+                      
+                    ) :
+                   ShowLogOut == false ? (
                         <button className='sin' ><Link to="/add-user"  >Sign In</Link></button>
-                  
+                   ) : ""
+                      }
                 </nav>
                
           </Col>

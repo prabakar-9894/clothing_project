@@ -1,0 +1,25 @@
+.conter_1 .LogDiv .LogOutBtn{
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    width: 60px;
+    height: 25px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.conter_1 .LogDiv{
+    margin-top: 7px;
+    /* display: grid;
+    grid-template-columns: auto auto auto; */
+    text-align: center;
+}
+.conter_1 .LogDiv p{
+    color: #fff;
+    margin-top: 5px;
+}
+.conter_1 .LogDiv img{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}

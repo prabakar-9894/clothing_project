@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 import Home from './Home';
@@ -25,6 +26,7 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import AddUser from './components/AddUser';
 import Login from './components/Login';
+import NotFound from './components/NotFound';
 
 
 export const ShopContext = createContext()
@@ -40,6 +42,8 @@ const App = () => {
 
 
  const [UserId, setUserId] = useState(null);
+ const [uploadedImage, setUploadedImage] = useState(null); // To display the uploaded image URL
+ const [UserName, setUserName] = useState(null);
 
   const [users, setUsers] = useState([]);
 
@@ -95,14 +99,27 @@ const App = () => {
    
   },[AllProductsCollection])
 
+  const ScrollToTop = () => {
+    const { pathname } = useLocation(); // Get the current route (pathname)
+  
+    useEffect(() => {
+      // Scroll to the top of the page whenever the route changes
+      window.scrollTo(0, 0);
+    }, [pathname]); // Run this effect whenever `pathname` changes
+  
+    return null; // This component doesn't render anything
+  };
+
 
   return (
     <>
-      <ShopContext.Provider value={{ UserId, setUserId,BottomWearCollection,TopWearCollection,handleLogout,cartCollection,setCartCollection,users, setUsers,HerobannerCollection,setHerobannerCollection,AllProductsCollection,setAllProductsCollection,totalCount,setTotalCount,StarRateIcon,RemoveShoppingCartIcon,AddShoppingCartIcon,PickId,setPickId,FilProductPick,setFilProductPick,FilProductTop,FilProductBest,setFilProductTop,setFilProductBest,TshirtId,setTshirtId,CurrencyRupeeIcon}}>
+      <ShopContext.Provider value={{ UserName,setUserName,uploadedImage, setUploadedImage,UserId, setUserId,BottomWearCollection,TopWearCollection,handleLogout,cartCollection,setCartCollection,users, setUsers,HerobannerCollection,setHerobannerCollection,AllProductsCollection,setAllProductsCollection,totalCount,setTotalCount,StarRateIcon,RemoveShoppingCartIcon,AddShoppingCartIcon,PickId,setPickId,FilProductPick,setFilProductPick,FilProductTop,FilProductBest,setFilProductTop,setFilProductBest,TshirtId,setTshirtId,CurrencyRupeeIcon}}>
 
       <Router>
+      <ScrollToTop/>
         <Header/>
         <Filter/>
+        
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/ViewDetails' element={<PickView />} />
@@ -113,7 +130,8 @@ const App = () => {
                 <Route path='/TopWear' element={<TopWear />} />
                 <Route path='/BottomWear' element={<BottomWear />} />
                 <Route path="/add-user" element={<AddUser />} />
-                <Route path="/login" element={<Login />} />        
+                <Route path="/login" element={<Login />} />       
+                <Route path='*' element={<NotFound/>} /> 
             </Routes>
           <Footer/>
           </Router>

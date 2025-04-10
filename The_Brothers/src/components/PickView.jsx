@@ -8,6 +8,8 @@ import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import PaymentIcon from '@mui/icons-material/Payment';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import proimg from '/assets/pro_img_2.png';
+import '/css/TopWear.css';
 
 const PickView = () => {
     const {PickId,AllProductsCollection,FilProductPick,setFilProductPick} = useContext(ShopContext);
@@ -87,7 +89,13 @@ const PickView = () => {
     <>
       <div className="body_1">
     <Container fluid>
-    { FilProductPick.map((prods)=> (
+{ FilProductPick.length === 0 ? (
+        <div className='NoProducts'>
+            <img src={proimg} alt="" />
+        </div>
+) : (
+
+     FilProductPick.map((prods)=> (
                 <Row key={prods.Id}>
         <Col lg={6} md={6} sm={6} xs={12}>
             <div className="left_1">
@@ -165,7 +173,7 @@ const PickView = () => {
                     </ul>
                 </div>
         </Col>
-        </Row> ))}
+        </Row> )))}
     </Container>
 </div>
     </>
