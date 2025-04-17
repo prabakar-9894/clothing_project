@@ -1,4 +1,4 @@
-
+/* Dropdown.css */
 .LogDiv {
     position: relative;
     display: inline-block;
@@ -18,11 +18,8 @@
     z-index: 1;
     border-radius: 5px;
   }
-
   
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  } */
+ 
   
   .LogDiv:hover .dropdown-content {
     display: block;
