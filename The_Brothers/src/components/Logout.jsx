@@ -4,34 +4,41 @@ import { ShopContext } from "../App";
 import axios from "axios";
 import "/css/Logout.css"
 
-const Logout = () => {
+const Logout = ({storedData,setStoredData}) => {
   const navigate = useNavigate();
   const { UserId,setUserId,setUploadedImage, uploadedImage } = useContext(ShopContext);
 
-  const handleLogout = async () => {
+  const handleLogout = async (index) => {
     try {
-      // Call the backend logout endpoint to clear the cookie
-       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/logout`);
-      
-      // Remove user data from localStorage
-      localStorage.removeItem("userID");
-      localStorage.removeItem("token");
-      localStorage.removeItem("image");
-      setUserId(null);
-      setUploadedImage(null);
-      // Redirect the user to the login page
+  
+
+      const UpdatedData = [...storedData];
+    UpdatedData.splice(index,1);
+    setStoredData(UpdatedData);
+    localStorage.setItem("formsAllData",JSON.stringify(UpdatedData));
+
+
       alert('User logout successfully');
       navigate("/"); // Adjust the route as needed
+      window.location.reload();
     } catch (err) {
       console.error("Error during logout:", err);
     }
   };
 
   return (
-    <>
-      <button onClick={handleLogout} className="LogOutBtn">
+    <>{
+
+    
+      storedData.map((item,index) => (
+        // <div key={index}>
+<button key={index} onClick={()=>handleLogout(index)} className="LogOutBtn">
         Logout
       </button>
+      // </div>
+      ))
+    }
+      
     </>
   );
 };

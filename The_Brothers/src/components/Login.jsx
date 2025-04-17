@@ -9,7 +9,7 @@ import "/css/Login.css";
 
 const Login = () => {
 
-    const { UserName,setUserName,UserId, setUserId, uploadedImage, setUploadedImage } = useContext(ShopContext);
+    const { formsAllData, setFormsAllData,UserName,setUserName,UserId, setUserId, uploadedImage, setUploadedImage } = useContext(ShopContext);
 
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState(""); 
@@ -32,17 +32,21 @@ const Login = () => {
         const { id, token, image, name } = response.data;
 
       if (response.status === 200) {
-        // Store token and user ID in localStorage
-      localStorage.setItem("userID", id);
-      localStorage.setItem("token", token);
-      localStorage.setItem("image",image);
-      localStorage.setItem("name",name);
-      setUserId(id);
-      setUploadedImage(image); // Save the image URL for display
-      setUserName(name);
+    
+      setFormsAllData({ id, image });
+    
+      // Retrieve existing data from localStorage
+      const existingData = JSON.parse(localStorage.getItem("formsAllData")) || [];
+  
+      // Append the new data directly from response to avoid relying on state timing
+      const updatedData = [...existingData, { id, image }];
+  
+      // Save the updated array back to localStorage
+      localStorage.setItem("formsAllData", JSON.stringify(updatedData));
         alert("Login successful!");
         setMessage(""); // Clear previous messages
         navigate("/"); // Redirect to the homepage or dashboard
+        window.location.reload();
       }
     } catch (error) {
       // Handle server or client errors
@@ -98,13 +102,15 @@ const Login = () => {
           />
         </div>
 
+ {/* Display Message (Error or Success) */}
+ {message && <p className="message">{message}</p>}
+ 
         {/* Submit Button */}
         <button type="submit" className="login-button">
           Login
         </button>
       </form>
-       {/* Display Message (Error or Success) */}
-       {message && <p className="message">{message}</p>}
+      
        </div>
         </Col>
 </Row>

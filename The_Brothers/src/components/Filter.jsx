@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import '/css/filter.css'
 import { Container, Row,Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,8 @@ import { ShopContext } from '../App';
 
 const Filter = () => {
 
-    const {cartCollection} = useContext(ShopContext);
+    const { BottomClickOne,TopClickOne,FilterCart } = useContext(ShopContext);
+
 
     $(document).ready(function(){
 
@@ -34,10 +35,21 @@ const Filter = () => {
         $('.themes').mouseout(function(){
             $('#dropdown_menu_3').hide();
         });
+
     
     });
 
+
+    function TopClick(){
+        TopClickOne.current.classList.add("topwearClick");
+        BottomClickOne.current.classList.remove("bottomwearClick");
+    }
+    function BottomClick(){
+        TopClickOne.current.classList.remove("topwearClick");
+        BottomClickOne.current.classList.add("bottomwearClick");
+    }
   
+
 
   return (
       <>
@@ -48,10 +60,10 @@ const Filter = () => {
             <nav className="conter_2">
                     <ul>
                        
-                        <li className="topwear"><Link to='/TopWear' id="dropdown_1">Topwear</Link>
+                        <li className="topwear" ref={TopClickOne} onClick={TopClick}><Link to='/TopWear' id="dropdown_1">Topwear</Link>
                            
                         </li>
-                        <li className="bottomwear"><Link to='/BottomWear' id="dropdown_2">Bottomwear</Link>
+                        <li className="bottomwear" ref={BottomClickOne} onClick={BottomClick}><Link to='/BottomWear' id="dropdown_2">Bottomwear</Link>
                             
                         </li>
                 
@@ -59,7 +71,7 @@ const Filter = () => {
                     </ul>
                     <div className="search_and_cart" >
                       
-                        <Link to='/AddCart' id="add_cart" >Cart<span className='countcart'>{cartCollection.length}</span></Link>
+                        <Link to='/AddCart' id="add_cart" >Cart<span className='countcart'>{FilterCart.length}</span></Link>
                     </div>
                 </nav>
             </Col>

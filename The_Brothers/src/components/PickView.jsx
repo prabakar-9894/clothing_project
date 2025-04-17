@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import axios from "axios";
 import { ShopContext } from '../App';
 import { Container, Row,Col } from 'react-bootstrap';
 import '/css/ViewDetials.css';
@@ -12,11 +13,12 @@ import proimg from '/assets/pro_img_2.png';
 import '/css/TopWear.css';
 
 const PickView = () => {
-    const {PickId,AllProductsCollection,FilProductPick,setFilProductPick} = useContext(ShopContext);
+    const {UserId,RemoveShoppingCartIcon,AddShoppingCartIcon,PickId,AllProductsCollection,FilProductPick,setFilProductPick,cartCollection,setCartCollection} = useContext(ShopContext);
 
     const [pickOne,setPickOne] = useState(true);
     const [pickTwo,setPickTwo] = useState(false);
     const [pickThree,setPickThree] = useState(false);
+    // const [FilProductPickFilter,setFilProductPickFilter] = useState();
 
     function PickOne(){
         setPickOne(true);
@@ -38,6 +40,7 @@ const PickView = () => {
                 setFilProductPick(AllProductsCollection.filter((u) => u._id === PickId));
            
         }, [PickId, AllProductsCollection]);
+
         
         $(document).ready(function(){
             $('.Size-S').click(function(){
@@ -84,6 +87,31 @@ const PickView = () => {
                 $('.Size-L').css('color','#000');
             })
         })
+
+            const addToCart = async (pro) => {
+        
+        
+              const newCartItem = {
+                userId: UserId,
+                ProductId: pro._id,
+                Image: pro.Image,
+                PricePerUnit: pro.Price, // Use PricePerUnit for accurate calculation
+                Name: pro.Type,
+                Quantity: 1 // Default quantity for new cart items
+              };
+          
+              try {
+                const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/carts`, newCartItem);
+                setCartCollection((prev) => [...prev, response.data.cartsProduct]);
+        
+        
+               
+              } catch (err) {
+                alert(err.response?.data?.message || "Something went wrong!");
+              }
+            };
+
+        
 
   return (
     <>
@@ -149,6 +177,23 @@ const PickView = () => {
                         <li><p>M.R.P : <span className='RateCros' > Rs . 1799.00 </span><br /><span> Rs . {prods.Price}.00</span><span className='sales' >sale</span></p></li>
                         <li><h1 className='Off'>50%</h1></li>
 
+                        <li>
+              {cartCollection.some((cart) => cart.ProductId === prods._id) ? (
+           
+                <button
+                    
+                    className="RemoveViewCarts"
+                    disabled
+                    
+                    >
+                    <RemoveShoppingCartIcon />
+                </button>
+            //   ))
+
+                ) : (
+                <button onClick={() => addToCart(prods)} className='AddViewCarts'><AddShoppingCartIcon/></button>
+                )}
+                        </li>
                         <li><hr /></li>
 
                         <li className='AllDelivery'>
@@ -177,6 +222,7 @@ const PickView = () => {
     </Container>
 </div>
     </>
+
   )
 }
 

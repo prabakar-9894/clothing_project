@@ -78,8 +78,29 @@
     border: solid 1px gray;
     margin: 0px 5px;
 }
-
-
+.body_1 .right_1 ul li .AddViewCarts{
+    width: 50px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: solid 1px green;
+    margin: 0px 5px;
+}
+.body_1 .right_1 ul li .AddViewCarts .MuiSvgIcon-root{
+    color: green;
+    /* color: rgb(255, 0, 136); */
+}
+.body_1 .right_1 ul li .RemoveViewCarts{
+    width: 50px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: solid 1px red;
+    margin: 0px 5px;
+}
+.body_1 .right_1 ul li .RemoveViewCarts .MuiSvgIcon-root{
+    color: red;
+}
 
 
 .body_1 .right_1 ul li .DealBtn{
@@ -138,6 +159,7 @@
 .body_1 .left_1 .sub_img_1::-webkit-scrollbar{
     width: 0;
 }
+
 
 
 

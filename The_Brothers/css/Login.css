@@ -1,12 +1,5 @@
 
 .login-container {
-    /* max-width: 300px;
-    padding: 20px;
-    margin: 40px auto;
-    border: 1px solid #ccc;
-    border-radius: 0px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; */
     background-color: #8d605d;
     margin: 0px 0px 0px 0px; 
     overflow: hidden;
@@ -149,7 +142,7 @@
       border-radius: 2px;
   }
   .form-group label {
-    font-size: 13px;
+    font-size: 11px;
 }
 .login-container button {
   width: 90%;

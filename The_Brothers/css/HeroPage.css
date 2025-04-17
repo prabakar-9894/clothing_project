@@ -3,7 +3,9 @@
     width: 100%;
     height: 380px;
 }
-
+.carousel .carousel-indicators button{
+    display: none;
+}
 
 @media screen and (max-width:900px){
     .carousel .carousel-inner .carousel-item img {

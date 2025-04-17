@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 
 const PickUpLeftOff = ({ PickProduct }) => {
-    const { UserId, setUserId,cartCollection,setCartCollection,setPickId,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+    const { cartAllStore,setCartAllStore,UserId, setUserId,cartCollection,setCartCollection,setPickId,RemoveShoppingCartIcon,AddShoppingCartIcon} = useContext(ShopContext);
+
+
 
     const addToCart = async (pro) => {
 
@@ -23,6 +25,9 @@ const PickUpLeftOff = ({ PickProduct }) => {
       try {
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/carts`, newCartItem);
         setCartCollection((prev) => [...prev, response.data.cartsProduct]);
+
+
+
        
       } catch (err) {
         alert(err.response?.data?.message || "Something went wrong!");

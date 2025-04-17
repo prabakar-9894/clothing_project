@@ -5,27 +5,34 @@ import '/css/AddCartTable.css'
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductNotFoundImg from '/assets/pro_img_2.png' 
 import '/css/ProductNotFoundImg.css'
+import AdderPlace from './AdderPlace';
 
 const AddCart = () => {
     
-    const {cartCollection} = useContext(ShopContext);
+    const { FilterCart,setFilterCart,cartCollection,setCartCollection,UserId, setUserId } = useContext(ShopContext);
     const [total,setTotal] = useState(0);
     
+    const[AllTotal,setAllTotal] = useState();
 
     const AllTable = useRef(null)
     const AllProductNot = useRef(null)
 
     useEffect(()=>{
-        setTotal(cartCollection.reduce((allTotals,currentPrice)=>allTotals+parseInt(currentPrice.Price),0))
+      
+        setTotal(FilterCart.reduce((allTotals,currentPrice)=>allTotals+parseInt(currentPrice.Price),0));
         
-        if(cartCollection.length > 0){ 
+        if(FilterCart.length > 0){ 
             AllTable.current.classList.add("tableAlls");
             AllProductNot.current.classList.add("AllProductNotFoud");
-        }else if(cartCollection.length === 0){
+        }else if(FilterCart.length === 0){
             AllTable.current.classList.remove("tableAlls");
             AllProductNot.current.classList.remove("AllProductNotFoud");
         }
-      },[cartCollection])
+        setAllTotal(50+total);
+      },[FilterCart,total])
+
+      const [AllCartStored,SetAllCartStored] = useState([]);
+
 
   return (
     <>
@@ -58,10 +65,10 @@ const AddCart = () => {
         <th className="header-price">Price</th>
       </tr>
     </thead>
-    {cartCollection.map((product) => (
+    {FilterCart.map((product) => (
       <tbody key={product._id} className="cart-body">
         <tr className="cart-row">
-          <AddCartView product={product} allTables={AllTable} />
+          <AddCartView product={product} allTables={AllTable} AllCartStored={AllCartStored} SetAllCartStored={SetAllCartStored} />
         </tr>
       </tbody>
     ))}
@@ -73,9 +80,35 @@ const AddCart = () => {
       </tr>
     </tbody>
   </table>
+
+<div className="AdderPlace">
+  <table className="cartTable">
+    <tbody>
+      <tr>
+        <td className='cartTableTd'><h3>Cart Total</h3></td>
+      </tr>
+      <tr>
+        <td><p>Subtotal</p></td><td className='cartTableTdRight'><p><span>Rs</span>.{total}</p></td>
+      </tr>
+      <tr>
+        <td><p>Delivery Fee</p></td><td className='cartTableTdRight'><p><span>Rs</span>.50</p></td>
+      </tr>
+      <tr>
+        <td className='cartTableTd'><h5>Total</h5></td><td className='cartTableTdRight RightTable'><h5><span>Rs</span>.{AllTotal}</h5></td>
+      </tr>
+      <tr>
+        
+      </tr>
+    </tbody>
+  </table>
+  <AdderPlace />
+</div>
+
+
 </div>
     </>
   )
 }
 
 export default AddCart
+

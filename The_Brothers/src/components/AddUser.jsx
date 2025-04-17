@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Row,Col } from 'react-bootstrap';
 import axios from "axios";
@@ -7,10 +7,15 @@ import "/css/AddUser.css";
 import { ShopContext } from "../App";
 import SignImg from "/assets/SignProImg.png"
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import AddIcon from '@mui/icons-material/Add';
 
 const AddUser = () => {
+  
+  const { formsAllData, setFormsAllData,UserName,setUserName ,UserId, setUserId, uploadedImage, setUploadedImage } = useContext(ShopContext);
 
-  const { UserName,setUserName,UserId, setUserId, uploadedImage, setUploadedImage } = useContext(ShopContext);
+  
+
+  const [imageSrc, setImageSrc] = useState(null);
 
   const [user, setUser] = useState({
     name: "",
@@ -37,6 +42,16 @@ const AddUser = () => {
   // Handle file input for profile image
   const handleFileChange = (e) => {
     setUser((prev) => ({ ...prev, image: e.target.files[0] })); // Save the file
+
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            setImageSrc(e.target.result); // Set image source
+        };
+        reader.readAsDataURL(file); // Read the file as a data URL
+    }
+
   };
 
   // Handle checkbox for terms and conditions
@@ -102,34 +117,39 @@ const AddUser = () => {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      const { id, image, name } = response.data; // Extract user ID from backend response
-
-      // Store user ID in localStorage
-      
-
-      
+    
       if (response.status === 201) {
-        // Success! Save the token and image URL
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("userID", id); // Save the ID locally
-        localStorage.setItem("image", image);
-        localStorage.setItem("name",name);
-        setUserId(id); // Disp
-        setUploadedImage(image);
-        setUserName(name);
-        // setUserId(response.data.id); // Disp
-        // setUploadedImage(response.data.image); // Save the image URL for display
-       
+        const { id, image, name } = response.data; // Extract response data
+    
+
+      
+    
+          // Retrieve existing data from localStorage
+    const existingData = JSON.parse(localStorage.getItem("formsAllData")) || [];
+    
+    // Append the new data directly from response to avoid relying on state timing
+    const updatedData = [...existingData, { id, image }];
+
+    // Save the updated array back to localStorage
+    localStorage.setItem("formsAllData", JSON.stringify(updatedData));
+
+    setFormsAllData({ id, image });
+    
         alert("User added successfully!");
-        navigate("/"); // Navigate to a welcome page or dashboard
+        navigate("/"); // Navigate to the welcome page or dashboard
+        window.location.reload();
       }
     } catch (err) {
       console.error(err);
       alert(err.response?.data?.message || "Something went wrong!");
     }
+
   };
-console.log("Add image: ",uploadedImage);
-console.log("Add name: ",UserName);
+
+  // useEffect(()=> {
+  //   // Update the state directly
+  //   setFormsAllData({ id, image });
+  //  },[id,image]);
 
   return (
     <div className="AddformAlldata">
@@ -147,12 +167,18 @@ console.log("Add name: ",UserName);
           {/* <h2>Sign Up</h2> */}
 
           <div className="form-group ProFileDiv">
+          <label>PROFILE  IMAGE</label><br />
             <div className="ProFile">
             <input type="file" id="fileImage" onChange={handleFileChange} placeholder="Add Image" accept="image/*" hidden />
-            <label htmlFor="fileImage">
+            {/* <label htmlFor="fileImage">
             <CloudUploadIcon className="CloudIcon"/>
             <p className="ProImgLable">Upload Image</p>
-            </label>
+            </label> */}
+             <label htmlFor="fileImage">
+              {/* <AddIcon/> */}
+              <CloudUploadIcon/>
+             </label>
+             <img src={imageSrc} alt="" />
             </div>
           </div>
 
@@ -163,7 +189,7 @@ console.log("Add name: ",UserName);
               onChange={handleChange}
               autoComplete="off"
               placeholder="Enter Name"
-            />
+            /><br/>
             <span className="error">{errors.name}</span>
           </div>
 
@@ -174,7 +200,7 @@ console.log("Add name: ",UserName);
               onChange={handleChange}
               autoComplete="off"
               placeholder="Enter Email"
-            />
+            /><br/>
             <span className="error">{errors.mail}</span>
           </div>
 
@@ -185,7 +211,7 @@ console.log("Add name: ",UserName);
               onChange={handleChange}
               placeholder="Enter Contact Number"
               autoComplete="off"
-            />
+            /><br/>
             <span className="error">{errors.contactNumber}</span>
           </div>
 
@@ -196,7 +222,7 @@ console.log("Add name: ",UserName);
               onChange={handleChange}
               placeholder="Enter Password"
               autoComplete="new-password"
-            />
+            /><br/>
             <span className="error">{errors.password}</span>
           </div>
 
@@ -207,7 +233,7 @@ console.log("Add name: ",UserName);
               onChange={handleChange}
               placeholder="Confirm Password"
               autoComplete="new-password"
-            />
+            /><br/>
             <span className="error">{errors.confirmPassword}</span>
           </div>
 
@@ -221,7 +247,7 @@ console.log("Add name: ",UserName);
                 onChange={handleCheckboxChange}
               />
               Accept terms and conditions
-            </label>
+            </label><br/>
             <span className="error">{errors.checkbox}</span>
           </div>
 

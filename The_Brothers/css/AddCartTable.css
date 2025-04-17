@@ -6,6 +6,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     display: none;
+    padding-bottom: 20px;
   }
 .tableAlls{
     display: block;
@@ -36,19 +37,33 @@
     object-fit: cover;
   }
   
-  .decrement-button, .increment-button, .remove-button {
-    padding: 5px 10px;
+  .decrement-button, .increment-button{
+    /* padding: 0px 10px; */
+    padding: 0px 0px;
+    width: 20px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .remove-button {
+    padding: 5px 10px;
+    /* width: 20px;
+    height: 20px; */
+    color: white;
+    border: none;
+    border-radius: 2px;
     cursor: pointer;
   }
   
   .remove-button {
     background-color: #dc3545;
   }
-  
+  .footer-label{
+    height: 50px;
+  }
+ 
   .product-price, .footer-price {
     font-size: 16px;
     font-weight: bold;
@@ -57,6 +72,56 @@
   th, td {
     font-weight: bold;
 }
+
+
+
+
+/* /////////////////////// */
+
+.AdderPlace{
+  padding: 20px;
+  background-color: #f9f9f9;
+  width: 500px;
+}
+.AdderPlace .cartTable{
+  width: 100%;
+}
+.AdderPlace .cartTable td{
+  padding: 10px;
+  border-bottom: 1px solid #b4b4b4;
+  margin: 5px;
+  text-align: left;
+}
+.AdderPlace .cartTable .cartTableTd{
+  border-bottom: none;
+}
+.AdderPlace .cartTable .cartTableTdRight{
+  text-align: right;
+    
+}
+.AdderPlace .cartTable .RightTable{
+  border-bottom: none;
+}
+.AdderPlace .cartTable td h3{
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+}
+.AdderPlace .cartTable td p{
+  font-weight: 400;
+  color: rgb(118, 118, 118);
+  margin: 0px;
+}
+.AdderPlace .cartTable td p span{
+  color: green;
+}
+.AdderPlace .cartTable td h5{
+  color: rgb(118, 118, 118);
+}
+.AdderPlace .cartTable td h5 span{
+  color: green;
+}
+
   
 
   @media (max-width: 768px) {
@@ -72,7 +137,26 @@
       font-size: 12px;
       padding: 4px 8px;
     }
+    .AdderPlace {
+      padding: 20px;
+      width: 300px;
   }
+  .AdderPlace .cartTable td h3 {
+    text-transform: uppercase;
+    color: #000;
+    font-size: 20px;
+}
+#ProceedCheckout {
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.AdderPlace .cartTable td h5 {
+  font-size: 18px;
+}
+  }
+
+
   @media (max-width: 500px) {
     .allCart {
       width: 100%;
@@ -82,7 +166,13 @@
       font-size: 12px; 
     }
   
-
+    .AdderPlace {
+      padding: 10px;
+      width: 220px;
+  }
+  .AdderPlace .cartTable td h3 {
+    font-size: 18px;
+}
  
   }
   @media (max-width: 450px) {
@@ -129,6 +219,11 @@
     }
   }
   
+
+
+
+
+
 
 
   @media (max-width: 360px) {

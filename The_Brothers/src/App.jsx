@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { createContext, useEffect, useState, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route, data } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -40,15 +40,26 @@ const App = () => {
   const [TshirtId,setTshirtId] = useState(null);
   const [totalCount,setTotalCount] = useState(0);
 
-
- const [UserId, setUserId] = useState(null);
- const [uploadedImage, setUploadedImage] = useState(null); // To display the uploaded image URL
+  const [formsAllData, setFormsAllData] = useState({ id: null, image: null });
+  const [storedData, setStoredData] = useState([]);
+  const [UserId, setUserId] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null); // To display the uploaded image URL
  const [UserName, setUserName] = useState(null);
 
   const [users, setUsers] = useState([]);
 
+     const TopClickOne = useRef(null);
+    const BottomClickOne = useRef(null);
 
+ const [FilterCart,setFilterCart] = useState([]);
   const [cartCollection,setCartCollection] = useState([]);
+  const [cartAllStore,setCartAllStore] = useState({
+    id:"",
+    userId: "",
+    ProductId: "",
+    Image: "",
+    Quantity: ""
+      });
 
 
 // DataBase Collection in Mongodb start
@@ -110,10 +121,50 @@ const App = () => {
     return null; // This component doesn't render anything
   };
 
+  
+
+useEffect(() => {
+  const retrievedData = JSON.parse(localStorage.getItem("formsAllData")) || [];
+  setStoredData(retrievedData);
+  const Upimg = retrievedData;
+  retrievedData.filter((item) => setUserId(item.id)); // Use retrievedData directly
+  Upimg.filter((item) =>  setUploadedImage(item.image)); // Use retrievedData directly
+}, []); // Dependency array removed to avoid unnecessary re-renders
+
+
+
+useEffect(()=>{
+  const fetchCartData = async () => {
+
+try{
+  const [ CartResponce ] = await Promise.all([
+  axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/carts`),
+  
+
+]);
+
+
+setCartCollection(CartResponce.data);
+
+}catch(err){
+  console.error("Error Fetching collection",err);
+}
+
+  }
+
+  fetchCartData()
+},[]);
+
+    useEffect(()=> {
+      setFilterCart(cartCollection.filter((pickCart)=> pickCart.userId === UserId));
+    },[cartCollection]);
+
+
+
 
   return (
     <>
-      <ShopContext.Provider value={{ UserName,setUserName,uploadedImage, setUploadedImage,UserId, setUserId,BottomWearCollection,TopWearCollection,handleLogout,cartCollection,setCartCollection,users, setUsers,HerobannerCollection,setHerobannerCollection,AllProductsCollection,setAllProductsCollection,totalCount,setTotalCount,StarRateIcon,RemoveShoppingCartIcon,AddShoppingCartIcon,PickId,setPickId,FilProductPick,setFilProductPick,FilProductTop,FilProductBest,setFilProductTop,setFilProductBest,TshirtId,setTshirtId,CurrencyRupeeIcon}}>
+      <ShopContext.Provider value={{ FilterCart,setFilterCart,BottomClickOne,TopClickOne,cartAllStore,setCartAllStore,formsAllData, setFormsAllData,storedData, setStoredData,UserName,setUserName,uploadedImage, setUploadedImage,UserId, setUserId,BottomWearCollection,TopWearCollection,handleLogout,cartCollection,setCartCollection,users, setUsers,HerobannerCollection,setHerobannerCollection,AllProductsCollection,setAllProductsCollection,totalCount,setTotalCount,StarRateIcon,RemoveShoppingCartIcon,AddShoppingCartIcon,PickId,setPickId,FilProductPick,setFilProductPick,FilProductTop,FilProductBest,setFilProductTop,setFilProductBest,TshirtId,setTshirtId,CurrencyRupeeIcon}}>
 
       <Router>
       <ScrollToTop/>

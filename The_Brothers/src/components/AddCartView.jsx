@@ -5,13 +5,13 @@ import axios from "axios";
 
 const AddCartView = ({ product }) => {
 
-    const {  setCartCollection } = useContext(ShopContext);
+    const {  FilterCart,setFilterCart,setCartCollection,UserId, setUserId } = useContext(ShopContext);
     const [loading, setLoading] = useState(false);
     
     const updateCartQuantity = async (id, newQuantity) => {
         try {
           const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/carts/${id}`, { Quantity: newQuantity });
-          setCartCollection((prev) =>
+          setFilterCart((prev) =>
             prev.map((item) => (item._id === id ? { ...item, Quantity: newQuantity, Price: response.data.updatedCart.Price } : item))
           );
           
@@ -23,13 +23,13 @@ const AddCartView = ({ product }) => {
       const handleDelete = async (id) => {
         try {
           await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/carts/${id}`);
-          setCartCollection((prev) => prev.filter((item) => item._id !== id));
+          setFilterCart((prev) => prev.filter((item) => item._id !== id));
           
         } catch (error) {
           alert(error.response?.data?.message || "Error removing from cart!");
         }
-      };
-    
+      }
+
 
     return (
         <>
@@ -64,7 +64,4 @@ const AddCartView = ({ product }) => {
     )
 }
 
-export default AddCartView;
-
-
-
+export default AddCartView

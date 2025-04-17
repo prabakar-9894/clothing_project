@@ -80,7 +80,18 @@
     position: relative;
     height: 30px;
     
+    
 }
+
+.filter .conter_2 ul .topwearClick{
+    bottom: 0px;
+    border-bottom: solid #8d605d;
+}
+.filter .conter_2 ul .bottomwearClick{
+    bottom: 0px;
+    border-bottom: solid #8d605d;
+}
+
 .filter .conter_2 ul .topwear::before{
     content: '';
     position: absolute;
